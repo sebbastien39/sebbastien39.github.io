@@ -10,7 +10,8 @@ FTP passwd for daemon : xampp	localhost
 # Install 
 Télécharger .deb sur site xampp	`xampp-linux-x64-8.2.4-0-installer.run`
 
-Donner droit d'exécution `sudo chmod +x xampp-linux-x64-8.2.4-0-installer.run`  
+Donner droit d'exécution `sudo chmod +x xampp-linux-x64-8.2.4-0-installer.run`
+
 Renommer `manager-linux-64.run` par `xmanager.run` (plus facile de s’en souvenir).
 
 
