@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Structure theme WordPress"
-date:   2023-07-09
+date:   2023-07-09 18:17:13 +0200
 categories: WordPress
 ---
 
@@ -31,7 +31,7 @@ comments.php
 
 Si vous avez envie de connaître l’utilité de chaque fichier, je vous invite à aller voir la page de documentation dédiée.
 
-# Les fichiers obligatoires pour chaque thème sont :
+## Fichiers obligatoires pour chaque thème
 
 index.php  : le template principal d’un thème. Si aucun autre template n’existe, c’est lui qui sera pris en compte;
 
@@ -39,17 +39,19 @@ style.css  : la feuille de style principale d’un thème. Ce fichier contient l
 
 functions.php  : le cœur des fonctionnalités de votre thème. Il permettra d’ajouter, modifier ou supprimer des possibilités offertes par WordPress. On travaillera principalement dans ce fichier.
 
-# Après, vous trouverez les fichiers suivants qui permettront de personnaliser votre thème :
+## Fichiers qui permettront de personnaliser votre thème
 
 header.php : permet de coder la partie haute d’un template, à partir de l’ouverture de la balise html jusqu’à l’ouverture de la balise body, et parfois un peu plus. Ce fichier est en général importé dans les différents fichiers de template;
 
 footer.php : permet de coder la partie basse d’un template à partir de la balise footer jusqu’à la fermeture de la balise html. Ce fichier est en général importé dans les différents fichiers de template.
 
 Si vous souhaitez faire des templates avancés pour les pages d’archive, il y a certains fichiers plus spécialisés. Nous n’entrerons pas en détail sur ces fichiers dans ce cours, mais vous saurez qu’ils existent.
-# Les fichiers les plus utiles sont :
+
+## Fichiers les plus utiles
 
 single.php : affiche la page d’un article;
-single-{post-type}.php : affiche un article d’un type précis. Cette notion de post-type  est avancée;
+
+single-{post-type}.php : affiche un article d’un type précis. Cette notion de post-type est avancée;
 
 archive.php : affiche la liste des articles, que ce soit selon la catégorie, l’auteur, la date, etc. Ce fichier peut être surclassé par d’autres fichiers de template plus précis. Si aucun surclassement n’existe, ce fichier est appelé en dernier lieu;
 
@@ -65,6 +67,8 @@ Il est commun, par exemple, de regrouper les fichiers statiques (c’est-à-dire
 
 Selon le développeur qui a créé le thème, sa structure peut être différente et plus ou moins complexe, car WordPress permet d’ajouter, modifier et supprimer des fonctionnalités avancées grâce au fichier functions.php. À partir de ce fichier, on peut être amené à coder de plein de manières différentes. C’est la flexibilité du PHP qui permet cela.
 
-Lien : child theme. Home / Theme Handbook / Theme Basics / Template Files
+## +
+
+[Child themes WordPress](https://developer.wordpress.org/themes/advanced-topics/child-themes/ "Child themes WordPress")
 
 
