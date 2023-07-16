@@ -20,7 +20,7 @@
 
 title: sebbastien39
 email: sebbastien39@gmail.com
-description: Posts Ubuntu Reminder II
+description: Posts Reminder Ubuntu II
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://sebbastien39.github.io/" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: jekyllrb
