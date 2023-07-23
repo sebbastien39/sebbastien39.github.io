@@ -29,26 +29,28 @@ Imaginons la mémoire de l’ordinateur comme une gigantesque armoire. Chaque va
 
 —
 
-Théorie : 
-Ex : Je veux que mon code retrouve “mon prénom”. “mon prénom” c’est une donnée que je vais ranger dans une variable.
+Théorie :
+
+Je veux que mon code retrouve “mon prénom”. “mon prénom” c’est une donnée que je vais ranger dans une variable.
 
 Une variable est toujours un ensemble de 3 éléments : une valeur, un nom, un type.
 
-valeur = donnée	içi Seb
-nom = ce qui permet de retrouver notre donnée (comme une étiquette sur notre tiroir 🙂)
-type = catégorie de donnée (type basique), chaîne de caractères - string, chiffre - number, boolean - true/false.
+***valeur*** = donnée	içi David  
+***nom*** = ce qui permet de retrouver notre donnée (comme une étiquette sur notre tiroir 🙂)  
+***type*** = catégorie de donnée (type basique), chaîne de caractères - string, chiffre - number, boolean - true/false.
 
 —
 
-Pratique : 
-Déclarer une variable : En J, il faut choisir entre let et const.
+Pratique :
 
-let, permet de déclarer une variable dont la valeur peut changer au cours du code.
-const (constante), permet de déclarer une variable dont la valeur reste la même tout au long du code.
+### Déclarer une variable : En J, il faut choisir entre let et const.
+
+***let***, permet de déclarer une variable dont la valeur peut changer au cours du code.  
+***const*** (constante), permet de déclarer une variable dont la valeur reste la même tout au long du code.
 
 déclarer une variable : let/const nomVariable = valeur
 
-ex : const monPrenom = Seb		ou	let monAge = 42
+ex : `const monPrenom = David`		ou	`let monAge = 42`
 
 —
 
@@ -56,32 +58,38 @@ En informatique, une variable est un conteneur qui stocke la donnée temporairem
 
 En tant que développeur, vous utilisez des variables pour stocker un nom d’utilisateur ou encore un chiffre représentant le nombre de produits restants dans votre stock. Cela vous permet de retrouver ces données plus facilement.
 
-Les instructions sont des mots-clés uniques qui permettent au code d’être correctement interprété. Pour déclarer des variables, vous utiliserez les instructions let et const.
+Les ***instructions*** sont des mots-clés uniques qui permettent au code d’être correctement interprété. Pour déclarer des variables, vous utiliserez les instructions let et const.
+
 —
+
+```javascript
 let monAge = 42
 
-Je peux faire évoluer cette valeur en écrivant :
+// Je peux faire évoluer cette valeur en écrivant :
 monAge = 43
+```
 
 Notez que je n’ai pas réécrit l’instruction let. En effet, une fois la variable déclarée une première fois grâce à let, je peux l’utiliser directement.
 
 —
 
-Dans ce cours, nous avons fait le choix de ne pas mettre le caractère;pour indiquer la fin d’une ligne de code. Vous serez cependant amené à le retrouver dans certains extraits de code. Les deux écritures sont acceptées.
+Dans ce cours, nous avons fait le choix de ne pas mettre le caractère `;` pour indiquer la fin d’une ligne de code. Vous serez cependant amené à le retrouver dans certains extraits de code. Les deux écritures sont acceptées.
 
-L’instruction var peut également être utilisée pour déclarer une variable, mais elle est considérée comme obsolète. Pour autant, ne soyez pas surpris d’en trouver parfois dans le code d’autres développeurs, ou dans de vieux projets.
+L’instruction `var` peut également être utilisée pour déclarer une variable, mais elle est considérée comme ***obsolète***. Pour autant, ne soyez pas surpris d’en trouver parfois dans le code d’autres développeurs, ou dans de vieux projets.
 
 —
 
-L’instruction console.log()
+L’instruction `console.log()`
 Pour vérifier le contenu d’une variable, il est possible d’utiliser l’instruction console.log(), avec entre les parenthèses, le nom de la variable.
 
+```javascript
 let monAge = 42
 console.log(monAge)
+```
 
 —
 
-Je vous encourage vivement à vous servir de console.log tout au long de ce cours. Cela vous permettra de vérifier les valeurs de n’importe quelle variable, et de vous assurer que notre code produit bien les résultats attendus.
+Je vous encourage vivement à vous servir de `console.log` tout au long de ce cours. Cela vous permettra de vérifier les valeurs de n’importe quelle variable, et de vous assurer que notre code produit bien les résultats attendus.
 
 —
 
@@ -98,10 +106,10 @@ C’est également utile pour moi, lorsque je reviens sur du code écrit il y a 
 Vous pouvez identifier une valeur en lui attribuant un nom grâce à une variable.
 
 Pour déclarer une variable en JavaScript, vous devez utiliser les instructions : 
-- let si la valeur de la variable évolue dans le code ;
-- const si la valeur de la variable est constante.
+- ***let*** si la valeur de la variable évolue dans le code ;
+- ***const*** si la valeur de la variable est constante.
 
-Utilisez l’instruction console.log(nomDeMaVariable) pour vérifier le contenu d’une variable.
+Utilisez l’instruction `console.log(nomDeMaVariable)` pour vérifier le contenu d’une variable.
 
 Le mot-clé var ne doit plus être utilisé. Vous pourrez néanmoins le retrouver dans des codes plus anciens.
 
@@ -125,8 +133,8 @@ On va toucher n'y au type, n'y au nom, mais juste changer la valeur de la variab
 
 Pour les valeurs de type "number", on peut utiliser les opérations mathématiques simples :
 
-
  addition | soustraction | division | multiplication 
+ ---------|--------------|----------|----------------
  + | - | / | *
 
 Ex : variable compte le nombre d'utilisateurs de mon site.
@@ -155,13 +163,15 @@ nombreUtilisateurs = 100
 
 ***Opérateur d'affectation*** : raccourcis qui permettent d'associer la variable à une opération sans avoir à écrire son nom 2 fois.
 
+|+= |-= |/= | *= |
+
 ## modifier une valeur de type "string"
 
 Pour modifier valeur string on lui ajoute des mots > concaténation.
 
-***concaténation*** : joindre bout à bout 2 chaînes de caractères.
+***concaténation*** : joindre bout à bout 2 chaînes de caractères. On utilise cette opération quand la chaîne de caractères que l’on souhaite stocker dans une variable est dans deux variables différentes.
 
-Pour réaliser une cancaténation, on utilise l'opérateur +
+Pour réaliser une cancaténation, on utilise l'opérateur `+` ou `+=`
 
 ```javascript
 // Modifier une variable string
@@ -185,7 +195,7 @@ L'opérateur `+` n'a pas la même action dans le cas d'une valeur "number" ou "s
 
 ## Boolean
 
-Pour manipuler boléen, il n'y a pas l'embarras du choix car il ne prennent que 2 valeurs (true / false).
+Pour manipuler boléen, il n'y a pas l'embarras du choix car il ne prennent que 2 valeurs (true / false), oui/non, vrai/faux, allumé/éteint.
 
 ```javascript
 let monBoolean = true
@@ -194,8 +204,28 @@ let monBoolean = false
 
 ## +
 
-[source](https://openclassrooms.com/fr/courses/7696886-apprenez-a-programmer-avec-javascript/8204726-modifiez-une-variable)
+### Convertire du texte en chiffre
+
+```javascript
+let maVariable = "25"   //interprété comme du texte à cause des ""
+console.log(maVariable + 5)
+// Résultat 255
+```
+
+Pour y remédier, utiliser l 'instruction `Number`, pour convertir la variable en chiffres.
+
+```javascript
+let maVariable = "25"
+console.log(Number(maVariable) + 5)
+```
+
+[source](https://openclassrooms.com/fr/courses/7696886-apprenez-a-programmer-avec-javascript/8204726-modifiez-une-variable). [Opérateurs d'affectation](https://developer.mozilla.org/fr/docs/Web/JavaScript/Guide/Expressions_and_Operators#op%C3%A9rateurs_daffectation).
 
 
 ---
+
+## Structurez des données grâce aux objets
+
+
+
 
