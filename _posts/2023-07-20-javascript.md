@@ -109,5 +109,93 @@ Veillez à bien nommer vos variables : indiquez leur contenu de manière explici
 
 ---
 
-## Modifiez une varaible
+## Modifiez une variable
+
+Une fois les variables déclarées, on peut les modifier.
+
+Il y a 3 types de variables, de données basiques : 
+
+- number (3, 42 ...)
+- string ("hello, world!")  Récuperer un nom d'util
+- Boolean (true / false)    Sit un utilisateur est conecté
+
+On va toucher n'y au type, n'y au nom, mais juste changer la valeur de la variable, en utilisant des opérations simples (un peu comme en math). Selon le type de donnée que l'on modifie, on ne peut pas réalisé les mêmes opérations.
+
+## Number
+
+Pour les valeurs de type "number", on peut utiliser les opérations mathématiques simples :
+
+
+ addition | soustraction | division | multiplication 
+ + | - | / | *
+
+Ex : variable compte le nombre d'utilisateurs de mon site.
+
+
+```javascript
+// Modifier une variable number
+let nombreUtilisateurs = 200
+nombreUtilisateurs = nombreUtilisateurs + 100
+nombre Utilisateurs = 300
+```
+
+```javascript
+// Modifier une variable number avec des opérateurs d'affectation
+let nombreUtilisateurs = 200
+nombreUtilisateurs += 100
+nombreUtilisateurs = 300
+```
+
+```javascript
+// idem pour les autres opérateurs
+let nombreUtilisateurs = 200
+nombreUtilisateurs -= 100
+nombreUtilisateurs = 100
+```
+
+***Opérateur d'affectation*** : raccourcis qui permettent d'associer la variable à une opération sans avoir à écrire son nom 2 fois.
+
+## modifier une valeur de type "string"
+
+Pour modifier valeur string on lui ajoute des mots > concaténation.
+
+***concaténation*** : joindre bout à bout 2 chaînes de caractères.
+
+Pour réaliser une cancaténation, on utilise l'opérateur +
+
+```javascript
+// Modifier une variable string
+let messageBienvenue = "Bienvenue,"
+let nomUtilisateur = "David42"
+let messageBienvenuePerso = messageBienvenue + nomUtilisateur
+// messageBienvenuePerso vaut "Bienvenue, David42".
+```
+
+```javascript
+// Modifier une variable string avec des opérateurs d'affectations
+let messageBienvenuePerso = "Bienvenue,"
+messageBienvenuePerso += "David42".
+// messageBienvenuePerso vaut "Bienvenue, David42".
+```
+
+L'opérateur `+` n'a pas la même action dans le cas d'une valeur "number" ou "string".
+
+- il additionne les number.
+- il concatène les chaînes de caractères.
+
+## Boolean
+
+Pour manipuler boléen, il n'y a pas l'embarras du choix car il ne prennent que 2 valeurs (true / false).
+
+```javascript
+let monBoolean = true
+let monBoolean = false
+```
+
+## +
+
+[source](https://openclassrooms.com/fr/courses/7696886-apprenez-a-programmer-avec-javascript/8204726-modifiez-une-variable)
+
+
+---
 
