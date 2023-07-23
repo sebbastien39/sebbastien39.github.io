@@ -68,19 +68,36 @@ Le shell Bash accède aux commandes externes grace à la variable `$PATH` (liste
 
 `/usr/local/bin`
 
-Pouvoir appeler commande de n'importe où : Ds `.bashrc` `export PATH=$PATH:/home/user/FichierDexécution`
-
-### Consultez la documentation des commandes sous Linux 
-
-
-
 `/usr/bin`
 
 `/bin`
 
+Pouvoir appeler commande de n'importe où : Ds `.bashrc` `export PATH=$PATH:/home/user/FichierDexécution`
 
+### Consultez la documentation des commandes sous Linux 
 
+**Commandes internes** `help` affiche liste des commandes internes intégrées au shell.
 
+ex : info sur une commande : `help echo`
+
+**Commande externe** 
+
+ex : `id --help` ou + détaillé `man id`
+
+### Profitez des fonctionnalités avancées de Bash 
+
+`history`
+
+rappeler une commande par son numéro `!1212`
+
+Rechercher dans `history` : Ctrl + R "mot à rechercher" > pour remonter ds l'occurence refaire Ctrl + R > Tab
+
+**Alias de commande** : Déclare une variable qui contient une commande "sur mesure".
+
+Editer `.bashrc`  
+`alias ll='ls -lrtha';`  
+Vérifier avec `type ll`  
+`alias` liste tous les alias préconfigurés
 
 
 

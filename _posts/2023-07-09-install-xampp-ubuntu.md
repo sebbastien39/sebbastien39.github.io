@@ -18,7 +18,6 @@ moi@monPC:~$ sudo chmod +x xampp-linux-x64-8.2.4-0-installer.run
 ```
 
 ### Renommer `manager-linux-64.run`
-
 par `xmanager.run` (plus facile de s’en souvenir).
 
 ### Créer un nouveau projet ds htdocs
@@ -42,6 +41,27 @@ moi@monPC:~$ ln -s /opt/lampp/htdocs/nomDuProjet /home/moiUser/nomRaccourcisProj
 ```console
 moi@monPC:~$ sudo /opt/lampp/xmanager.run
 ```
+
+---
+
+## php-cli
+
+PHP fournit un serveur web interne qui utilise PHP en ligne de commande pr provoquer l’exécution du script et le rendu de la page.
+
+Ex : Création de index.php avec code suivant : 
+```
+<?php
+echo "Hello world";
+```
+
+Exécute index.php en ligne de commande (à partir du dossier le contenant).
+
+localhost = nom de domaine locale  
+8080 = port http quelconque.
+
+`php -S localhost:8080`
+
+[Retour de l’exécution du script sur http://localhost:8080/index.php](http://localhost:8080/index.php)
 
 ## +
 
