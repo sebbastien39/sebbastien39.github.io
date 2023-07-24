@@ -226,6 +226,49 @@ console.log(Number(maVariable) + 5)
 
 ## Structurez des données grâce aux objets
 
+![](/assets/images/2023-07-24 14-34-25.png)
 
+Si un élément a plusieurs valeurs à la fois, on va utiliser les objets javascript.
 
+***Objet*** : sorte de conteneur qui contient ***plusieurs valeurs*** attribuées ***à un même élément***.
 
+Pour déclarer un objet, on utilise des accolades.
+
+`Instruction + nomDeLaVariable = { propriétés : valeur }`
+
+Grâce aux objets, il est possible de déclarer des propriétés à l'infini.
+
+```javascript
+let monPersonnage = {
+    nom: "Wayne",
+    prenom: "Bruce",
+    age: 35,
+    couleurPreferee: "noir",
+    hobbies: "sortir la nuit"
+}
+```
+
+Plus tard si l'on souhaite ajouter une propriété à l'objet, c'est possible : 
+
+`nomDeMonObjet.nomDeLaPropriété = valeurDeLaProPriété`
+
+```javascript
+monPersonnage.vehiculePrefere = "Batmobile"
+```
+
+Pour accéder à la valeur d'une propriété qui est dans l'objet, pour l'afficher dans la console par exemple : 
+
+`console.log(nomDeLobjet.nomDeLaPropriété)
+// Affiche la valeur de la propriété`
+
+```javascript
+console.log(monPersonnage.couleurPreferee) // Affiche "noir"
+```
+
+## Def
+
+Un ***Object*** (objet, en français) JavaScript est un conteneur. Il est composé de propriétés qui ont chacune une valeur. Ainsi, le type de donnée Object offre la possibilité de stocker plusieurs valeurs en une seule fois, plutôt que de devoir stocker séparément nos valeurs dans plusieurs variables différentes.
+
+## +
+
+[source](https://openclassrooms.com/fr/courses/7696886-apprenez-a-programmer-avec-javascript/8204834-structurez-des-donnees-grace-aux-objets). 
