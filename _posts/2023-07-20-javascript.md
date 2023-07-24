@@ -248,7 +248,7 @@ let monPersonnage = {
 }
 ```
 
-Plus tard si l'on souhaite ajouter une propriété à l'objet, c'est possible : 
+Plus tard si l'on souhaite ***ajouter une propriété à l'objet***, c'est possible : 
 
 `nomDeMonObjet.nomDeLaPropriété = valeurDeLaProPriété`
 
@@ -256,19 +256,75 @@ Plus tard si l'on souhaite ajouter une propriété à l'objet, c'est possible :
 monPersonnage.vehiculePrefere = "Batmobile"
 ```
 
-Pour accéder à la valeur d'une propriété qui est dans l'objet, pour l'afficher dans la console par exemple : 
+Pour ***accéder à la valeur d'une propriété qui est dans l'objet***, pour l'afficher dans la console par exemple : 
 
-`console.log(nomDeLobjet.nomDeLaPropriété)
-// Affiche la valeur de la propriété`
+`console.log(nomDeLobjet.nomDeLaPropriété) // Affiche la valeur de la propriété`
 
 ```javascript
 console.log(monPersonnage.couleurPreferee) // Affiche "noir"
+```
+
+-
+
+Lorsque vous manipulez des objets JavaScript, vous avez également besoin d’accéder à leurs propriétés pour les stocker dans des variables, et les utiliser dans la suite de votre code ou dans un autre contexte.
+
+Vous pouvez accéder à la valeur d’une propriété en utilisant le point  .  et par exemple, la stocker dans une variable.
+
+Dans le cadre de l’***objet monPersonnage***, vous écrirez :
+
+```javascript
+const nomDeMonPersonnage = monPersonnage.nom
+
+// Vérification
+console.log(nomDeMonPersonnage)
+console.log(monPersonnage.nom)
 ```
 
 ## Def
 
 Un ***Object*** (objet, en français) JavaScript est un conteneur. Il est composé de propriétés qui ont chacune une valeur. Ainsi, le type de donnée Object offre la possibilité de stocker plusieurs valeurs en une seule fois, plutôt que de devoir stocker séparément nos valeurs dans plusieurs variables différentes.
 
+## Résumé
+
+Un objet en JavaScript peut posséder plusieurs propriétés qui auront pour chacune d’elles une valeur.
+
+Pour déclarer un objet en JavaScript, vous devez utiliser les accolades  `{ }`
+
+Pour ajouter ou récupérer une propriété, vous devez utiliser le point `.`
+
+## Exercice
+
+```javascript
+const ticket = {
+  nomFilm: "Batman",
+  prix: 20,
+  numeroSalle: 2    //pas de virgule à la dernière propriété
+}
+
+let nom = "Seb"     // j'ai mis let puis const et en fait c'est let
+
+// Méthode 1
+let texteAffichage = "Bonjour "
+texteAffichage += nom
+texteAffichage += ", Votre film "
+texteAffichage += ticket.nomFilm
+texteAffichage += ", est en salle "
+texteAffichage += ticket.numeroSalle
+
+// Méthode 2
+let texteAffichage = "Bonjour " + nom + ", Votre film " + ticket.nomFilm + ", est en salle " + ticket.numeroSalle
+
+console.log(ticket) //Pour tester valeur
+console.log(nom)    //Pour tester valeur
+console.log(texteAffichage) //Afficher la concaténation
+
+```
+
 ## +
 
-[source](https://openclassrooms.com/fr/courses/7696886-apprenez-a-programmer-avec-javascript/8204834-structurez-des-donnees-grace-aux-objets). 
+[source](https://openclassrooms.com/fr/courses/7696886-apprenez-a-programmer-avec-javascript/8204834-structurez-des-donnees-grace-aux-objets).
+
+---
+
+## Regroupez des données grâce aux tableaux
+
