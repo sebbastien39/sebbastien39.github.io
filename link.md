@@ -4,6 +4,8 @@ title: Links
 permalink: /links/
 ---
 
+[Dev Tools Mozilla](https://developer.mozilla.org/fr/docs/Learn/Common_questions/Tools_and_setup/What_are_browser_developer_tools#la_console_javascript). 
+
 ## gh-pages and Markdown
 
 First thing to do to create a website on GitHub [gh-pages](https://pages.github.com).
@@ -32,6 +34,6 @@ Minima theme [code](https://github.com/jekyll/minima/blob/master/about.md). Info
 
 ## WordPress
 
-## Freebox dossier réseau
+## Freebox
 
-[Lien](https://alexbacher.fr/unixlinux/acces-disque-freebox-ubuntu/)
+[Freebox dossier réseau](https://alexbacher.fr/unixlinux/acces-disque-freebox-ubuntu/)

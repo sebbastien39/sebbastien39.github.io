@@ -115,6 +115,12 @@ Le mot-clé var ne doit plus être utilisé. Vous pourrez néanmoins le retrouve
 
 Veillez à bien nommer vos variables : indiquez leur contenu de manière explicite pour rendre votre code lisible pour tout le monde.
 
+## +
+
+Contrairement aux variables déclarées avec let qui peuvent changer de valeur au cours du code, les variables déclarées avec const ne changent pas de valeur. Rappelez-vous que const est un raccourci pour le mot constante.
+
+[source](https://openclassrooms.com/fr/courses/7696886-apprenez-a-programmer-avec-javascript/8204629-declarez-une-variable).  
+
 ---
 
 ## Modifiez une variable
@@ -268,7 +274,7 @@ console.log(monPersonnage.couleurPreferee) // Affiche "noir"
 
 Lorsque vous manipulez des objets JavaScript, vous avez également besoin d’accéder à leurs propriétés pour les stocker dans des variables, et les utiliser dans la suite de votre code ou dans un autre contexte.
 
-Vous pouvez accéder à la valeur d’une propriété en utilisant le point  .  et par exemple, la stocker dans une variable.
+Pour accéder à la propriété d’un objet, vous devez utiliser le point `.` suivi du nom de la propriété. Il ne vous reste plus qu’à stocker sa valeur dans une variable.
 
 Dans le cadre de l’***objet monPersonnage***, vous écrirez :
 
@@ -286,7 +292,7 @@ Un ***Object*** (objet, en français) JavaScript est un conteneur. Il est compos
 
 ## Résumé
 
-Un objet en JavaScript peut posséder plusieurs propriétés qui auront pour chacune d’elles une valeur.
+Un ***objet*** en JavaScript peut posséder plusieurs propriétés qui auront pour chacune d’elles une valeur.
 
 Pour déclarer un objet en JavaScript, vous devez utiliser les accolades  `{ }`
 
@@ -328,3 +334,163 @@ console.log(texteAffichage) //Afficher la concaténation
 
 ## Regroupez des données grâce aux tableaux
 
+Regrouper des variables en utilisant des tableaux.
+
+***Tableau*** : conteneur qui permet de regrouper plusieurs variables ou plusieurs valeurs. Sorte de super variable qui en regroupe plusieurs.
+
+On déclare un tableau avec des crochets `[]` Chaque valeur est séparée par une `,`
+
+`instruction nomTableau = ["valeur1","valeur2","valeur3"]`
+
+`const mesFilms = ["Titanic","Jurassic Park","Le seigneur des Anneaux"]`
+
+Il est possible de stocker des variables dans un tableau : 
+
+```javascript
+const monFilmPrefere = "Titanic"
+const monPremierFilm = "Le Seigneur des Anneaux"
+
+const maCollectionDeFilms = [monFilmPrefere, monPremierFilm]
+
+// maCollectionDeFilms vaut ["Titanic", "Le Seigneur des Anneaux"]
+```
+
+### Accéder à un élément d'un tableau
+
+Mettre entre crochet le numéro de la case à regarder. Le tableau commence à zéro `0`
+
+```javascript
+let premierFilmDuTableau = maCollectionDeFilms[0]
+```
+
+### Compter le nombre d'éléments d'un tableau
+
+Connaitre le nombre de données contenu dans un tableau avec la ***propriété `length`***, en utilisant le point `.` , comme pour les objets. Cette propriété est préétablie par JavaScript. Elle est donc automatiquement disponible pour tous les tableaux.
+
+`console.log(mesFilms.length) // Il y a 3 éléments dans le tableau`
+
+Les ***méthodes*** : permettent de modifier facilemment les données contenu dans un tableau, on les utilise avec des parenthèse, en mettant les valeurs à ajouter ou a supprimer du tableau entre 2 parenthèses `()`.
+
+### Ajouter un élément
+
+méthode ***push*** : permet d'ajouter un élément, toujours à la dernière place de la liste des valeurs dans le tableau : 
+
+```javascript
+mesFilms.push("Retour vers le futur")
+// Retour vers le futur sera ajouter au tableau
+```
+
+### Supprimer un élément
+
+méthode ***pop*** : permet de supprimer la dernière valeur de la liste. Pas besoin d'écrir une valeur entre parenthèses.
+
+```javascript
+let mesFilms = ["Titanic","Jurassic Park","Retour vers le futur"]
+mesFilms.pop()
+// mesFilms vaut ["Titanic","Jurassic Park"]
+```
+
+### Distinguez les copies par “valeur” et par “référence”
+
+Lorsqu’on programme, il arrive parfois que l’on veuille dupliquer une variable. C’est le cas lorsque l’on doit sauvegarder une valeur avant de la modifier, par exemple. Pour cela, le plus simple est de copier le contenu d’une variable à l’intérieur d’une autre variable.
+
+***Copie par valeur***
+
+```javascript
+// Copie par valeur
+let variableSimple1 = 25
+let variableSimple2 = variableSimple1
+```
+Si variable2 est un type simple (boolean, number ou string), alors le contenu sera dupliqué.
+
+Au final, nous aurons deux tiroirs indépendants avec chacun une valeur à l’intérieur.
+
+***Copie par référence***
+
+Imaginez maintenant que vous vouliez copier une variable qui contient un contenu de type “complexe” :  un objet ou un tableau, par exemple. Dans ce cas, JavaScript fait une copie par référence.
+
+```javascript
+let variableComplexe1 = ['pomme', 'cerise']
+let variableComplexe2 = variableComplexe1
+```
+
+Ici, nous n’avons pas deux tiroirs, c’est l’étiquette qui a été copiée. En d’autre termes, variable1 et variable2 sont deux étiquettes différentes pour le même tiroir. Nous avons donc deux variables qui pointent sur le même contenu.
+
+***Différence copie par valeur, copie par référence*** : 
+
+Dans le cas d’une copie par ***valeur***, si vous modifiez la valeur d’une des deux variables, la valeur de l’autre ne change pas.
+
+Dans le cas d’une copie par ***référence***, si vous changez la valeur de la première variable, la valeur de la seconde est affectée aussi.
+
+### Dupliquer (cloner) un tableau
+
+- Déclarer un nouveau tableau.
+- Copier les données ds le nouveau tableau avec le "spread operator" `...`
+
+```javascript
+let variableComplexe3 = [...variableComplexe1];
+// Copie tous les éléments de variableComplexe1 dans variableComplexe3
+// Les 2 tableaux sont indépendants
+```
+
+ Les tableaux sont souvent déclarés avec ***const*** en JavaScript, même s'ils évoluent tout au long du code. Ce qui est constant, ce n’est pas le contenu, mais l’endroit en mémoire où est stocké le tableau. 
+
+### Supprimer donnée précise
+
+`splice` pour supprimer une donnée précise.
+
+### Trier les données
+
+`sort` pour trier les données.
+
+## Déf
+
+Un ***tableau*** en JavaScript est donc un objet qui permet de lister plusieurs variables ou valeurs, et de les regrouper.
+
+Les ***tableaux*** sont des conteneurs, comme les objets que nous avons vus dans le chapitre précédent. Pour effectuer des actions sur les données stockées dans votre tableau (ajouter, supprimer des données…), vous utiliserez des méthodes.
+
+Les ***méthodes*** s’utilisent avec des parenthèses  ( )  . À l’intérieur de ces parenthèses vous pouvez passer des valeurs, c'est-à-dire des données, qui serviront à la méthode pour modifier les données de votre tableau. En réalité, vous avez déjà utilisé une méthode fournie par JavaScript : console.log() ! 
+
+La ***copie par valeur***. Nous avons copié le contenu d’une variable à l’intérieur d’une autre variable. Nous avons donc deux variables indépendantes.
+
+La ***copie par référence***. Les variables font référence au même espace mémoire.
+
+## Résumé
+
+Un ***tableau*** est un conteneur qui permet de regrouper plusieurs valeurs ou variables.
+
+Un ***tableau*** possède une (seule) propriété ***length*** qui permet de connaître le nombre de données contenues dans un tableau.
+
+Une méthode s’utilise avec des parenthèses `( )` , et permet d’interagir avec le contenu du tableau. Il existe de nombreuses méthodes différentes mises à disposition par le langage.
+
+Lorsqu’on copie une ***variable simple***, JavaScript réalise une copie par valeur (la valeur est dupliquée).
+
+Lorsqu’on copie une ***variable complexe***, JavaScript réalise une copie par référence (les deux variables pointent sur la même valeur).
+
+## +
+
+Déclarer tableau `[]`  
+Déclarer objet `{}`  
+Pour utiliser des méthodes `()`
+
+[source](https://openclassrooms.com/fr/courses/7696886-apprenez-a-programmer-avec-javascript/8204994-regroupez-des-donnees-grace-aux-tableaux). [Doc Moz Tableau](https://developer.mozilla.org/fr/docs/Learn/JavaScript/First_steps/Arrays).
+
+---
+
+## Appréhendez la logique de programmation
+
+
+
+## Résumé
+
+Un fichier JavaScript répond à une logique de programmation qui a pour but de résoudre un problème donné.
+
+Pour construire cette logique de programmation, vous devrez :
+
+- concevoir un algorithme qui définit les étapes permettant de résoudre un problème donné ;
+
+- transposer cet algorithme en code organisé avec des structures conditionnelles et/ou des fonctions intégrant des blocs de code. 
+
+Pour coder, vous devez utiliser un éditeur de code comme Visual Studio Code pour créer ou importer vos fichiers JavaScript et HTML.
+
+Pour tester votre code, affichez la console de votre navigateur grâce aux Outils de développement.
