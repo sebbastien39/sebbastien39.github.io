@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Javascript"
+title:  "Apprenez à programmer avec JavaScript"
 date:   2023-07-09 18:14:13 +0200
 categories: javascript débutant
 ---
@@ -15,6 +15,8 @@ categories: javascript débutant
 - créer un formulaire de saisie de données.
 
 codepen = bac à sable pour tester du code et voir le résultat en direct.
+
+    Découverte du language Javascripte et de sa syntaxe.
 
 ## Déclarez une variable
 
@@ -424,8 +426,8 @@ Dans le cas d’une copie par ***référence***, si vous changez la valeur de la
 
 ### Dupliquer (cloner) un tableau
 
-- Déclarer un nouveau tableau.
-- Copier les données ds le nouveau tableau avec le "spread operator" `...`
+1. Déclarer un nouveau tableau.
+2. Copier les données dans le nouveau tableau avec le "spread operator" `...`
 
 ```javascript
 let variableComplexe3 = [...variableComplexe1];
@@ -477,11 +479,83 @@ Pour utiliser des méthodes `()`
 
 ---
 
+***
+
 ## Appréhendez la logique de programmation
 
+    Comprendre la logique de programmation de Javascript
 
+Rédiger un programme informatique, qui répond à une logique de programmation. Le navigateur web, est capable de comprendre et d’interpréter ce programme.
 
-## Résumé
+### La notion d'algorithme
+
+En tant que développeur, vous rédigez du code dans le but de développer un programme informatique. Vous allez donc écrire, en JavaScript, un ***ensemble d’instructions et d’opérations*** qui seront exécutées par un ordinateur dans un but précis.
+
+### Organisez votre code grâce aux blocs de code
+
+Les blocs de code sont des regroupements de lignes de code. Ils permettent d’organiser votre code et de clarifier à quoi sert un groupe de lignes de code. En JavaScript, ils sont délimités par des accolades  `{ }`
+
+Exemple de bloc de code :
+
+```javascrip
+{
+    const monChiffre = 4
+    console.log(monChiffre)
+}
+```
+Ici, j’ai utilisé un bloc de code pour déclarer la variable monChiffre.
+
+### Installez votre environnement de travail
+
+Utilisez un éditeur de code (IDE) tel que Visual Studio Code.
+
+Avoir un dossier de travail pour le projet. DS VSCode : File > openFolder > FichierDuProjet
+
+Pour exécuter du code Javascript, il faut au minimum 2 fichiers :
+- un fichier .html : notre page web.
+- un fichier .js : qui contiendra le code Javascript.
+
+***index.html*** : 
+
+```javascript
+<!DOCTYPE HTML>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="script.js"></script>
+</head>
+<body>
+
+</body>
+</html>
+```
+
+La ligne `<script src="script.js"></script>` va lier fichier HTML au fichier JS, le fichier HTML va charger le ***script JS***. C'est grâce à cette ligne que le navigateur saura qu’il doit exécuter les instructions contenues dans script.js.
+
+***script.js***
+
+```javascript
+// Pour tester que tout fonctionne avec “Hello World”
+console.log("Hello World");
+```
+
+#### Affichez la console de votre navigateur
+
+- Ouvrir index.HTML dans navigateur (Ds VSCode : Clic D, Reveal in File Explorer).
+- Afficher les Dev tool > Console
+
+Dans la console, vous verrez notre “Hello World”, qui correspond à l’instruction écrite dans le fichier script.js.
+
+### Déf
+
+Un ***algorithme*** est une façon de concevoir les étapes d’un code dans le but de résoudre un problème donné.
+
+****IDE*** (Integrated Development Environment, ou environnement de développement intégré). Un IDE permet de regrouper tout ce dont nous aurons besoin pour écrire notre code. Tous les fichiers seront au même endroit, et le code sera coloré pour faciliter la lecture.
+
+### Résumé
 
 Un fichier JavaScript répond à une logique de programmation qui a pour but de résoudre un problème donné.
 
@@ -494,3 +568,78 @@ Pour construire cette logique de programmation, vous devrez :
 Pour coder, vous devez utiliser un éditeur de code comme Visual Studio Code pour créer ou importer vos fichiers JavaScript et HTML.
 
 Pour tester votre code, affichez la console de votre navigateur grâce aux Outils de développement.
+
+### +
+
+[source](https://openclassrooms.com/fr/courses/7696886-apprenez-a-programmer-avec-javascript/8205116-apprehendez-la-logique-de-programmation)
+
+---
+
+## Contrôlez du code grâce aux conditions
+
+Pour écrire un code fonctionnel et permettre à notre ordinateur de réalisé certaine opérations à notre place, il va falloir utiliser des conditions.
+
+Exemple de condition "humaine" : À la boulangerie, si il y a du pain au noix, j'en prends un, sinon je prends une baguette.
+
+Pour un ordinateur (Il faut lui parler dans sa langue).
+
+En programmation, une condition, c'est un test, dont le résultat peut être soit vrai soit faut et en fonction du résultat de ce test, notre programme va effectuer une opération ou bien une autre. Il va agir de manière conditionnelle.
+
+![](/assets/images/2023-07-26 18-22-18.png)
+
+Cette fois, c'est un robot programmé qui va à la boulangerie : 
+
+![](/assets/images/2023-07-26 18-25-27.png)
+
+![](/assets/images/2023-07-26 18-28-56.png)
+
+Donc une condition c'est :
+
+![](/assets/images/2023-07-26 18-32-18.png)
+
+Si vous avez compris ça, vous avez le pouvoir !
+
+Exercice AzerType :
+
+L’utilisateur va devoir recopier un mot qui lui est proposé. Si le mot est correct, son score augmentera, sinon… Eh bien, il ne se passera rien.
+
+Algorithme de l'application : 
+
+    si “mot tapé par l’utilisateur” == “mot proposé”  
+    alors “on augmente le score”
+
+/!\ Notez l’absence de “sinon”. On ne le précise que si l’on veut réaliser un
+traitement dans le cas où la condition n’est pas valide, ce qui n’est pas le cas ici.
+
+### Rédigez une condition en JavaScript
+
+Pour  rédiger une condition, vous devez :
+
+- utiliser des structures conditionnelles ;
+- rédiger un test ;
+- rédiger un bloc de code.
+
+Il existe deux principaux types de conditions en JavaScript :
+
+- les ***conditions if / else*** permettent d’exécuter du code selon une réponse unique à un test ;
+- les ***conditions switch*** permettent d’exécuter du code si notre test peut avoir plusieurs réponses.
+
+### Déf
+
+Une ***condition*** est une ***structure conditionnelle*** qui contient un ***test*** dont le résultat sera vrai ou faux. Elle permet d'exécuter des instructions en fonction du résultat de ce test. On parle donc de structure conditionnelle, car un code ne s’exécutera qu’***à condition*** que le test soit vrai ou faux.
+
+### Résumé
+
+Une condition est un type de structure conditionnelle qui contient un test dont le résultat sera vrai ou faux.
+
+Les conditions if / else permettent d’exécuter du code selon une réponse unique à un test.
+
+Les conditions switch permettent d’exécuter du code si notre test peut avoir plusieurs réponses.
+
+Vous pouvez utiliser des booléens pour les tests de vos conditions, ou des opérateurs de comparaison, en fonction de ce que vous souhaitez tester.
+
+
+
+### +
+
+[source](https://openclassrooms.com/fr/courses/7696886-apprenez-a-programmer-avec-javascript/8205369-controlez-du-code-grace-aux-conditions).
