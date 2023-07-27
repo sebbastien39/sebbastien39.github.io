@@ -624,6 +624,150 @@ Il existe deux principaux types de conditions en JavaScript :
 - les ***conditions if / else*** permettent d’exécuter du code selon une réponse unique à un test ;
 - les ***conditions switch*** permettent d’exécuter du code si notre test peut avoir plusieurs réponses.
 
+### Utilisez des conditions if / else pour gérer une seule réponse
+
+syntaxe d’une condition en JavaScript :
+
+```javascript
+if (condition) {
+    // Code exécuté si la condition est vraie
+} else {
+    // Code exécuté si la condition est fausse
+}
+```
+
+Ce morceau de code signifie : Si (if, en angais) la condition est vraie, alors j’exécute le premier bloc de code, sinon (else, en anglais) j’exécute le second.
+
+La condition utilisée peut être un booléen (valant true ou false), ou une comparaison (exemple : variable === 42).
+
+#### Rédigez un test avec des booléens
+
+Ex : Dans notre cas, nous cherchons à comparer le mot tapé par l’utilisateur à celui choisi par l’application.
+
+Je crée ainsi une variable motTapeOk qui contiendra true ou false, et j’écris mon test en fonction :
+
+```javascript
+let motTapeOk = true // Essayez de mettre false à la place de true
+
+if (motTapeOk) {
+    console.log("Bravo, vous avez correctement tapé le mot")
+} else {
+    console.log("Échec, le mot n'est pas correct")
+}
+```
+
+Ici, motTapeOk est une variable de type booléen. Comme la variable vaut true (vrai), alors JavaScript a exécuté le premier bloc de code, car la condition est validée. Le mot tapé est correct, j’affiche donc le message correspondant.
+
+En fait, le else est optionnel. Vous pouvez donc simplement écrire :
+
+```javascript
+let motTapeOk = true // Essayez de mettre false à la place de true
+
+if (motTapeOk) {
+    console.log("Bravo, vous avez correctement tapé le mot")
+}
+```
+
+Si l’utilisateur a correctement tapé le mot, le premier bloc sera exécuté, sinon… eh bien pas de sinon. Le code s’arrête là.
+
+#### Rédigez un test avec des opérateurs de comparaison
+
+```javascript
+let motUtilisateur = prompt("Entrez un mot :")
+console.log(motUtilisateur)
+```
+
+Dans ce morceau de code :
+
+- nous déclarons une variable motUtilisateur ;
+
+- à l’intérieur nous mettons le résultat de l’instruction prompt(“Entrez un mot :”). Cette instruction fera apparaître une petite popup sur la page ;
+
+- l’utilisateur n’a plus qu’à répondre à la question, et ce mot se retrouve à l’intérieur de la variable motUtilisateur. 
+
+
+#### Les opérateurs de comparaison :
+
+|<  | inférieur à|
+|<= | inférieur ou égal à|
+|=== | égal à	|
+| >= | supérieur ou égal à|
+| > | supérieur à|
+| !== | différent de|
+
+Il existe également les opérateurs  ==  et  !=  pour comparer des valeurs entre elles. Cependant, il n’est pas recommandé de les utiliser, car ils ne permettent pas de tester en une seule opération la valeur et le type de données de la valeur. Vous pourrez néanmoins être amené à en trouver dans le code d’autres développeurs.
+
+Ex : `===` va nous permettre de comparer si deux éléments ont exactement la même valeur.
+
+```javascript
+const motApplication = "Bonjour" // Essayez de mettre un autre mot ici !
+let motUtilisateur = prompt("Entrez le mot : " + motApplication)
+
+if (motUtilisateur === motApplication) {
+    console.log("Bravo !")
+} else {
+    console.log("Vous avez fait une erreur de frappe.")
+}
+```
+
+#### Utilisez la condition switch/case pour gérer plusieurs réponses
+
+- définir le test avec switch(laValeurATester) ;
+- lister les valeurs possibles avec case.
+
+```javascript
+switch (motUtilisateur) {
+    case motApplication:
+        console.log("Bravo !")
+        break
+    case "Gredin":
+        console.log("Restez correct !")
+        break
+    case "Mécréant":
+        console.log("Restez correct !")
+        break
+    case "Vilain":
+        console.log("Soyez gentil !")
+        break
+    default:
+        console.log("Vous avez fait une erreur de frappe.")
+}
+```
+Ici, je teste motUtilisateur : 
+
+- si l’utilisateur a tapé “Gredin”, alors c’est le premier console.log qui va s’exécuter ;
+- s’il a tapé “Mécréant”, c’est le second console.log qui s’exécute. ;
+- s’il a tapé “Vilain”, c’est le troisième ;
+- s’il a rentré autre chose (default), alors c’est le dernier console.log qui s’exécute.
+
+Le ***break*** sert à arrêter le code.
+
+### Exercice
+
+Faire évoluer le score, quand le mot est exacte.
+
+```javascript
+const listMots = ["Cachalot","Pétunia","Serviette"]
+let score = 0
+
+let motUtilisateur = prompt("Entrez un mot : " + listMots[0])
+if (motUtilisateur === listMots[0]) {
+ score++
+}
+
+motUtilisateur = prompt("Entrez un mot : " + listMots[1])
+if (motUtilisateur === listMots[1]) {
+ score++
+}
+
+motUtilisateur = prompt("Entrez un mot : " + listMots[2])
+if (motUtilisateur === listMots[2]) {
+ score++
+}
+
+console.log(score)
+```
+
 ### Déf
 
 Une ***condition*** est une ***structure conditionnelle*** qui contient un ***test*** dont le résultat sera vrai ou faux. Elle permet d'exécuter des instructions en fonction du résultat de ce test. On parle donc de structure conditionnelle, car un code ne s’exécutera qu’***à condition*** que le test soit vrai ou faux.
@@ -638,8 +782,11 @@ Les conditions switch permettent d’exécuter du code si notre test peut avoir 
 
 Vous pouvez utiliser des booléens pour les tests de vos conditions, ou des opérateurs de comparaison, en fonction de ce que vous souhaitez tester.
 
-
-
 ### +
 
 [source](https://openclassrooms.com/fr/courses/7696886-apprenez-a-programmer-avec-javascript/8205369-controlez-du-code-grace-aux-conditions).
+
+---
+
+## Répétez du code grâce aux boucles
+
