@@ -11,13 +11,17 @@ shell standard de Linux `Bash`
 
 Le shell exécuté après l’étape d’authentification est configuré dans le fichier `/etc/passwd`
 
-Modifier le fichier /etc/passwd et indiquer un interpréteur de commandes comme /usr/bin/nologin ou /dev/zero ou encore /dev/null  , garantit que l'utilisateur ne pourra jamais lancer de shell à la suite du processus d'authentification lors de la connexion. Et donc, il ne pourra pas faire grand chose
+Pour garantir que l'utilisateur ne pourra jamais lancer de shell à la suite du processus d'authentification lors de la connexion. Et donc, pas faire grand chose. Il faut modifier le fichier `/etc/passwd` et indiquer un interpréteur de commandes comme `/usr/bin/nologin` ou `/dev/zero` ou encore `/dev/null`.
+
 
 ### Lancer des commandes sous Bash
 
 #### Utiliser le prompt et consulter ses variables
 
-prompt : moi@monPC:~$
+```sh
+# Exemple de prompt :
+moi@monPC:~$
+```
 
 Utilisateur `moi` `\u`  
 Séparateur `@`  
@@ -34,10 +38,11 @@ Ds `.bashrc` `export PS1="\u-\h:\s";`
 
 La variable `$SHELL` dit sur quel shell on est connecté. `echo $SHELL`
 
-### Lister le contenu d'un répertoire
+
+#### Lister le contenu d'un répertoire
 
 option (modifie la Sortie) :  
-`ls` long list `-l` trier par date `t` résultats inversés `r` recursive, ds les répertoires `R` human redable `h`
+`ls` long list `-l`; trier par date `t`; résultats inversés `r`; recursive, ds les répertoires `R`; human readable `h`.
 
 argument (donnée d'Entrée pr exécuter commande):  
 `ls -ltrh repertoire1`
@@ -51,13 +56,13 @@ Les commandes internes : Livrées avec l'interpréteur de commandes directement,
 
  Les commandes externes : Externes à l'interpréteur de commandes, c'est-à-dire qu'elles ne sont pas fournies par le shell. Elles sont généralement présentes sur le système sous la forme d'un fichier compilé binaire ou d'un fichier disposant des droits d'exécution (comme un script Perl par exemple).
 
-`type` permet de récupérer infos sur une commande. `type echo` = `echo is a shell builtin` eho est une commande intégrée au shell.
+- `type` permet de récupérer infos sur une commande. `type echo` = `echo is a shell builtin` echo est une commande intégrée au shell.
 
-`file` info sur un fichier
+- `file` info sur un fichier
 
-Pour chaîner des commandes `&&`. `cd /home && file *`
+- Pour chaîner des commandes `&&`. `cd /home && file *`
 
-`id` info sur compte utilisateur connecté. `type id` `file /usr/bin/id`
+- `id` info sur compte utilisateur connecté. `type id` `file /usr/bin/id`
 
 ### Configurer l'accès aux commandes
 
@@ -76,19 +81,24 @@ Pouvoir appeler commande de n'importe où : Ds `.bashrc` `export PATH=$PATH:/hom
 
 ### Consultez la documentation des commandes sous Linux 
 
-**Commandes internes** `help` affiche liste des commandes internes intégrées au shell.
+- **Commandes internes** `help` affiche liste des commandes internes intégrées au shell.
 
 ex : info sur une commande : `help echo`
 
-**Commande externe** 
+- **Commande externe** 
 
 ex : `id --help` ou + détaillé `man id`
 
 ### Profitez des fonctionnalités avancées de Bash 
 
-`history`
+```sh
+history
+```
 
-rappeler une commande par son numéro `!1212`
+```sh
+# rappeler une commande par son numéro
+!1212
+```
 
 Rechercher dans `history` : Ctrl + R "mot à rechercher" > pour remonter ds l'occurence refaire Ctrl + R > Tab
 
