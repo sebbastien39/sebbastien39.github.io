@@ -790,3 +790,64 @@ Vous pouvez utiliser des booléens pour les tests de vos conditions, ou des opé
 
 ## Répétez du code grâce aux boucles
 
+Je veux qu mon téléphone affiche la liste de mes contacts. CaD, la photo de mon ami n°1, n°2, n°3, etc. Le problème, j'ai 500 contacts et je ne vais pas écrire l'instruction 500 fois. Pas de problème, je vais utiliser une boucle.
+
+Le principe des boucles, c'est de pouvoir répéter une instruction plein de fois, sans avoir à la réécrire à chaque fois.
+
+2 types de boucles :
+
+- La boucle ***For***, correspond à une instruction que l'on va demander de répéter un certain nombre de fois (500 par exemple). Dans ce cas là, notre variable va prendre la valeur de 0 à 499 et on va s'en servir pour exécuter l'instruction "affiche la photo de mon ami n° X". X va de 0 à 499. En gros, la boucle va compter jusqu'à 500 et s'arrêtera de tourner seulement lorsqu'elle aura exécuter l'instruction 500 fois.
+
+> For (ce qui défini le ***fonctionnement de la boucle***) {Bloc de code à exécuter à chaque tour}
+
+On va créer un compteur pour notre boucle et gérer son fonctionnement, avec 3 éléments.
+
+> For (initialisation du compteur ; condition d'arrêt ; exécuter à chaque tour de boucle et mets à jour le compteur)
+
+![](/assets/images/2023-07-28 07-53-58.png)
+
+> Attention ! <mark>compteur vaut 0, puis 1, puis 2, puis 3, etc</mark>
+
+![](/assets/images/2023-07-28 07-55-12.png)
+
+Il faut connaitre combien de tour de boucle on a besoin de faire.
+
+- La boucle ***While*** 
+
+J'ai besoin de chercher dans mes contacts le n° d'une amie qui s'appelle Alice. Je ne sais pas si dans mon répertoire c'est au n°3 ou au n°250. Je vais utliser un deuxième type de boucle, la boucle ***While***.
+
+> let compteur =  
+> let i=  
+i pour index (convention de nommage)
+
+```javascript
+let i=0
+// Je vais continuer à boucler tant que le contact que je regarde n'est pas Alice.
+while (condition d'arrêt)
+
+{
+    // Mise à jour du compteur i
+    i=i+1   // équivalent à i++
+    }
+```
+
+La boucle va tourner jusqu'à ce qu'elle trouve le contact "Alice".
+
+![](/assets/images/2023-07-28 09-04-39.png)
+
+Au moment où l'on sort de la boucle, on sait que "Alice" est le contact n°i, on va pouvoir afficher son numéro de téléphone avec `console.log(listContact[i].telephone)`
+
+
+
+
+### Résumé
+
+Une boucle est une structure conditionnelle qui permet de répéter du code plusieurs fois.
+
+- La boucle ***for*** permet de répéter du code pour un nombre défini de fois.
+
+- La boucle ***while*** permet de répéter du code jusqu’à ce qu’une condition ne soit plus remplie.
+
+### +
+
+[source](https://openclassrooms.com/fr/courses/7696886-apprenez-a-programmer-avec-javascript/8205519-repetez-du-code-grace-aux-boucles). 
