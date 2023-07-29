@@ -1,9 +1,48 @@
 ---
 layout: post
-title:  "Administrer Linux"
+title:  "Administrez un système Linux"
 date:   2023-07-09 18:13:13 +0200
 categories: linux
 ---
+
+## Découvrez les terminaux Linux
+
+Dans les années 70, les ordinateurs sont tellement grands qu'ils occupent une salle entière. Les opérateurs de ces ordi sont dans le coin de cette salle ou même dans une autre salle. Pour intéragir avec ces machines on utilise un petit équipement physique qui resseble à une machine à écrire ou un minitel, équipé d'un clavier et d'un écran, il était appelé "Terminal" car il était à l'extrémité de ces systèmes.
+
+Avec le temps, les ordinateurs ont évoluer et les "Terminaux" aussi. Aujourd'hui, il n'est plus n'écessaire que le terminal soit un équipement à part entière, un ***logiciel*** suffit. On parle alors d'***Émulateur de Terminal*** ou ***Terminal Virtuel***.
+
+
+***Émulateur de Terminal*** ou ***Terminal Virtuel*** : Programme qui reproduit le comportement des anciens boitiers physiques.
+
+2 gros avantages :
+- La possibilité de ce connécter à distance.
+- La possibilité de lancer plusieurs "Émulateur de Terminal" en simultanés.
+
+Console = Terminal  //Uniquement en mode texte et  occupe tous l'espace écran disponnible.
+
+Linux propose 7 Terminaux dit "physiques", ils sont accessibles uniquement quand on est en face du serveur et pas à distance. Il sont gérer par sa console via les combinaisons de touches `Ctrl+Alt+F1 à F7`.
+
+Sur serveur Linux :
+
+- Si on est physiquement face au serveur avec un clavier et un écran, on utilise les ***7 Terminaux Physiques gérés par la console***.
+
+- Lorsque l'on est à distance via le réseau, on utilise un ***Émulateur de Terminal***, c'est à dire, un programme qu'on lance sur notre poste de travail.
+ 
+
+Bon Émulateurs pour démarrer sur Linux : [XFCE Terminal](https://docs.xfce.org/apps/terminal/start) ou [Gnome Terminal](https://help.gnome.org/users/gnome-terminal/stable/).  
+Putty sur windows.
+
+
+### Déf
+
+Émulateur de Terminal : gère la connexion au serveur distant avec un protocole réseau (telnet, rlogin ou SSH). 
+
+- Le protocole VNC (Virtual Network Computing) permet notamment de prendre la main à distance sur un ordinateur. C’est un protocole de terminal virtuel graphique.
+
+- Le protocole RDP (Remote Desktop Protocol) qui permet de se connecter sur des serveurs Windows Terminal Serveur en est un également.
+
+
+
 
 ## Découvrir le terminal et le shell
 
