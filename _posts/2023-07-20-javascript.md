@@ -517,7 +517,7 @@ Pour exécuter du code Javascript, il faut au minimum 2 fichiers :
 
 ***index.html*** : 
 
-```javascript
+```html
 <!DOCTYPE HTML>
 <html lang="fr">
 <head>
@@ -971,11 +971,122 @@ Dans le code ci-dessus :
 
 [Je vous invite à revoir ces opérations dans la vidéo](https://openclassrooms.com/fr/courses/7696886-apprenez-a-programmer-avec-javascript/8205519-repetez-du-code-grace-aux-boucles#/id/r-8205468)
 
+### Exercice
 
+1. Factoriser le code suivant, c'est-à-dire de mettre en commun les parties répétées à l’aide d'une boucle :
+
+```javascript
+const listMots = ["Cachalot","Pétunia","Serviette"]
+let score = 0
+
+let motUtilisateur = prompt("Entrez un mot : " + listMots[0])
+if (motUtilisateur === listMots[0]) {
+ score++
+}
+
+motUtilisateur = prompt("Entrez un mot : " + listMots[1])
+if (motUtilisateur === listMots[1]) {
+ score++
+}
+
+motUtilisateur = prompt("Entrez un mot : " + listMots[2])
+if (motUtilisateur === listMots[2]) {
+ score++
+}
+
+console.log(score)
+```
+
+Résultat de la factorisation :
+
+```javascript
+const listMots = ["Cachalot","Pétunia","Serviette"]
+let score = 0
+
+for (let i = 0; i < listMots.length; i++) {
+    let motUtilisateur = prompt("Entrez un mot : " + listMots[i])
+    if (motUtilisateur === listMots[i]) {
+        score++
+    }
+}
+
+console.log("Votre score est de : " + score + " sur " + listMots.length)
+```
+// length : propriété du tableau pour connaitre le nombre d'éléments.
+
+// i = compteur; nombre de tours de boucle (nb d'élément ds le tableau; i++)
+
+2. Pour rendre le jeu plus engageant, nous voulons que l’utilisateur puisse avoir le choix entre deux listes de mots différentes : une liste avec des mots et une liste avec des phrases.
+
+```javascript
+// SB93:)
+const listMots = ["Cachalot","Pétunia","Serviette"]
+const listPhrases = ["Pas de panique !", "La vie, l'univers et le reste", "Merci pour le poisson"]
+
+let score = 0
+
+let choix = prompt("Entrez listMots ou listPhrase : ")
+
+if (choix === "listMots"){
+
+for (let i = 0; i < listMots.length; i++){
+  let motUtilisateur = prompt("Entrez un mot : " + listMots[i])
+  if (motUtilisateur === listMots[i]){
+    score++
+  } 
+}
+} else {
+
+for (let i = 0; i < listPhrases.length; i++){
+  let motUtilisateur = prompt("Entrez un mot : " + listPhrases[i])
+  if (motUtilisateur === listPhrases[i]){
+    score++
+  } 
+}
+}
+
+
+console.log("Votre score est de : " + score + " sur " + listMots.length)
+// SB93:) 30/07/23
+```
+
+Correction : 
+
+```javascript
+const listMots = ["Cachalot","Pétunia","Serviette"]
+const listPhrases = ["Pas de panique !", "La vie, l'univers et le reste", "Merci pour le poisson"]
+
+let score = 0
+
+let choix = prompt("Veuillez choisir la liste : mots ou phrases")
+while (choix !== "mots" && choix !== "phrases"){
+    choix = prompt("Veuillez choisir la liste : mots ou phrases")
+}
+
+if(choix === "mots"){
+    for (let i = 0; i > listMots.length; i++){
+        let motUtilisateur = prompt("Entrez le mot : " + listMots[i])
+        if (motUtilisateur === listMots[i]){
+            score++
+        }
+    }
+    console.log("Votre score est de " + score + " sur " + listMots.length)
+} else {
+    for (let i = 0; i > listPhrases.length; i++){
+        let motUtilisateur = prompt("Entrez le mot : " + listPhrases[i])
+        if (motUtilisateur === listPhrases[i]){
+            score++
+        }
+    }
+    console.log("Votre score est de " + score + " sur " + listPhrases.length)
+}
+```
+
+[Le corrigé en vidéo](https://openclassrooms.com/fr/courses/7696886-apprenez-a-programmer-avec-javascript/8205519-repetez-du-code-grace-aux-boucles#/id/r-8205506)
 
 ### Résumé
 
-Une boucle est une structure conditionnelle qui permet de répéter du code plusieurs fois.
+- Une boucle est une structure conditionnelle qui permet de répéter du code plusieurs fois.
 
 - La boucle ***for*** permet de répéter du code pour un nombre défini de fois.
 
@@ -984,3 +1095,8 @@ Une boucle est une structure conditionnelle qui permet de répéter du code plus
 ### +
 
 [source](https://openclassrooms.com/fr/courses/7696886-apprenez-a-programmer-avec-javascript/8205519-repetez-du-code-grace-aux-boucles). 
+
+---
+
+## Organisez votre code grâce aux fonctions
+
