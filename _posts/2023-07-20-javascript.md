@@ -127,7 +127,7 @@ Contrairement aux variables déclarées avec let qui peuvent changer de valeur a
 
 ## Modifiez une variable
 
-Une fois les variables déclarées, on peut les modifier.
+<mark>Une fois les variables déclarées, on peut les modifier.</mark>
 
 Il y a 3 types de variables, de données basiques : 
 
@@ -790,7 +790,9 @@ Vous pouvez utiliser des booléens pour les tests de vos conditions, ou des opé
 
 ## Répétez du code grâce aux boucles
 
-Je veux qu mon téléphone affiche la liste de mes contacts. CaD, la photo de mon ami n°1, n°2, n°3, etc. Le problème, j'ai 500 contacts et je ne vais pas écrire l'instruction 500 fois. Pas de problème, je vais utiliser une boucle.
+### Retranscription vidéo
+
+Je veux que mon téléphone affiche la liste de mes contacts. CaD, la photo de mon ami n°1, n°2, n°3, etc. Le problème, j'ai 500 contacts et je ne vais pas écrire l'instruction 500 fois. Pas de problème, je vais utiliser une boucle.
 
 Le principe des boucles, c'est de pouvoir répéter une instruction plein de fois, sans avoir à la réécrire à chaque fois.
 
@@ -838,7 +840,7 @@ La boucle va tourner jusqu'à ce qu'elle trouve le contact "Alice".
 Au moment où l'on sort de la boucle, on sait que "Alice" est le contact n°i, on va pouvoir afficher son numéro de téléphone avec `console.log(listContact[i].telephone)`
 
 
----
+-
 
 ### Découvrez les boucles
 
@@ -973,7 +975,7 @@ Dans le code ci-dessus :
 
 ### Exercice
 
-1. Factoriser le code suivant, c'est-à-dire de mettre en commun les parties répétées à l’aide d'une boucle :
+- Factoriser le code suivant, c'est-à-dire de mettre en commun les parties répétées à l’aide d'une boucle :
 
 ```javascript
 const listMots = ["Cachalot","Pétunia","Serviette"]
@@ -1016,7 +1018,7 @@ console.log("Votre score est de : " + score + " sur " + listMots.length)
 
 // i = compteur; nombre de tours de boucle (nb d'élément ds le tableau; i++)
 
-2. Pour rendre le jeu plus engageant, nous voulons que l’utilisateur puisse avoir le choix entre deux listes de mots différentes : une liste avec des mots et une liste avec des phrases.
+-  Pour rendre le jeu plus engageant, nous voulons que l’utilisateur puisse avoir le choix entre deux listes de mots différentes : une liste avec des mots et une liste avec des phrases.
 
 ```javascript
 // SB93:)
@@ -1099,4 +1101,290 @@ if(choix === "mots"){
 ---
 
 ## Organisez votre code grâce aux fonctions
+
+### Retranscription vidéo
+
+Jusqu'içi, on a écrit notre code un peu en bazarre, comme ça vient.
+
+On va mettre un peu d'ordre dans tout ça en apprenant à utiliser des fonctions. Ça veut dire, que l'on va regrouper des instructions, leurs données un nom, des paramètres (ce qui sera en Entrée) et un résultat ou valeur de retour (c'est la valeur que l'on récupère en Sortie).
+
+En fait, une fonction c'est un peu comme "une machine à pain". Si vous avez une machine à pain, en Entrée vous mettez de la farine, de l'eau, de la levure, du sel et en Sortie, vous avez du pain.
+
+Donc en Entrée, une fonction prends des paramètres. Les paramètres, c'est les ingrédients que vous mettez dans la machine à pain. Avec une machine et pas de farine, vous n'aurez pas de résultats. La machine traite ces paramètres et retourne le résultat, içi le pain.
+
+Si vous modifier les paramètres, vous allez obtenir un résultat différent. Par exemple, si vous ajoutez des noix en Entrée, votre valeur de retour sera du pain aux noix. Mais peut importe les ingrédients, votre machine, elle, reste toujours la même machine à pain. C'est pareil pour le code, même si les paramètres sont différents, ***vous utilisez la même fonction***.
+
+Si vous en avez marre du pain, on peut imaginer une fonction bien mathématique et bien concrète. Une fonction qui calcule la TVA par exemple.
+
+Pour déclarer ma fonction, j'écris "function" puis le nom que je veux lui donner, en règle général, on utilise un verbe qui correspond à l'action de la fonction. Içi, je vais mettre "calculer TVA". Ensuite j'ouvre les parenthèses, c'est là que je vais insérer mes paramètres. Pour calculer une TVA ma fonction va avoir besoin de 2 valeurs d'Entrée : le prix hors taxe et le taux de la TVA. Ensuite, j'ouvre des crochets pour indiquer le fonctionnement de ma fonction, je veux qu'elle retourne le résultat d'un calcul, j'écris donc ***return***. Le calcul, c'est le prix hors taxe multiplier par le taux de la TVA, le tout diviser par 100, et je ferme l'accolade.
+
+`function nomDeLaFonction (paramètres){fonctionnement de la fonction}`
+
+![](/assets/images/2023-07-30 15-30-34.png)
+
+Et voilà le travail ! Enfin pas tout à fait.
+
+Avec ces 2 lignes de codes, on à créé un outils dans notre programme. Il existe, il est fonctionnel mais il n'est pas encore en marche. C'est un peu comme si j'avais ma voiture et que tous les voyants sont au vert mais qu'elle est encore à l'arrêt. Pour la faire avancer, il faudrat appeler la fonction.
+
+Je vous montre comment faire dans la suite du chapitre.
+
+Pour l'instant, retenez que l'on va pouvoir appeler cette fonction aussi souvent qu'on en aura besoin. Tout au long de notre code, on pourra appeler, "calculer TVA" avec plein de prix différents et on obtiendra toujours le bon résultat.
+
+Ça va vraiment nous permettre d'organiser et de simplifier notre code.
+
+Avec les fonctions, vous allez pouvoir commencer à créer des programmes un peu plus pointus mais aussi plus compréhensibles et plus faciles à maintenirs.
+
+Une dernière chose, étends donner que l'on va commencer à compartimenter notre code; on va pouvoir définir la portée de nos variables. Une variable n'existe que dans un certain espace.
+
+- D'un côté, on a les ***variables locales***. <mark>Variables déclarées au sein d'une fonction et qui ne sont pas utilisables en dehors de cette fonction.</mark>
+
+- De l'autre, on peut aussi définir des ***variables globales***. Des variables déclarées en dehors d'une fonction, qui peuvent donc être utilisées au sein de n'importe qu'elles fonctions.
+
+À notre niveau, on va utiliser surtout des variables locales. <mark>Moins on utilise de variables globales, meilleur est le code</mark>.
+
+-
+
+Notre projet avance ! Nous pouvons maintenant proposer plusieurs mots ou phrases à l’utilisateur, compter son score et l’afficher. 🚀
+
+Pour l’instant notre code est encore relativement petit, mais il va grandir au fur et à mesure du développement. Il est donc très important de l’organiser pour qu’il reste lisible et fonctionnel. C’est d’autant plus important que, en tant que développeur, vous devrez fréquemment dupliquer du code. Voyons ensemble comment éviter cette répétition et réaliser cela efficacement, grâce aux fonctions ! 😃
+
+### Découvrez les fonctions
+
+Une fonction est un bloc de code auquel on attribue un nom. Appeler cette fonction permet d’exécuter le code qu’elle contient. On parle donc de fonction, car il s’agit d’un bloc de code qui a un rôle spécifique au sein de votre fichier JavaScript. Une fonction peut ainsi : 
+
+- contenir des informations, qu’on appelle paramètres ;
+- retourner un résultat ;
+- effectuer une action. 
+
+En fait, vous utilisez déjà des fonctions depuis le début de ce cours, sans même le savoir ! Par exemple, quand vous écrivez :
+
+```javascript
+motUtilisateur = prompt('Entrez un mot')
+```
+
+Prompt est une fonction : 
+
+- elle prend en paramètre le message à afficher (ici, “Entrez un mot”) ;
+- elle retourne un résultat : le mot tapé par l’utilisateur. 
+
+Dans l’exemple ci-dessus, le retour de la fonction prompt est copié dans motUtilisateur. 
+
+### Rédigez une fonction en JavaScript
+
+Dans le cadre de notre application, nous souhaitons écrire une fonction qui va générer une phrase pour donner le score final à l'utilisateur. Cette fonction prendra donc en paramètre deux informations : 
+
+- le score ;
+
+- le nombre de questions.
+
+Elle retournera une phrase contenant ces informations.
+
+Cela donne donc :
+
+```javascript
+function retournerMessageScore(score, nombreQuestions) {
+    let message = 'Votre score est de ' + score + ' sur ' + nombreQuestions
+    return message
+}
+```
+
+Revenons en détail sur ce morceau de code :
+
+- le mot-clé function (“fonction”, en anglais) est suivi du nom “retournerMessageScore”. Ce mot est ici obligatoire pour définir la fonction, mais il n’est ensuite plus nécessaire lorsqu’on l’utilise ;
+
+- par conséquent, la fonction “retournerMessageScore” est créée ;
+
+- entre parenthèses sont indiqués les paramètres envoyés à cette fonction : “score” et “nombreQuestions” ;
+
+- entre accolades est indiqué le bloc de code qui sera exécuté quand la fonction sera appelée (let message… et return) ;
+
+- dans ce bloc de code, nous déclarons une variable message dans laquelle nous créons notre message ;
+
+- le code est finalisé avec le nouveau mot-clé return. Ce mot signifie que la fonction va retourner le contenu de message.
+
+Si vous ajoutez ce code dans votre projet et que vous le testez, il ne provoquera aucun changement pour le moment. Ces instructions définissent notre fonction… Mais pour qu’elle produise son effet, nous devons ***l’appeler***.
+
+Par exemple :
+
+```javascript
+let nouveauMessage = retournerMessageScore(5, 10)
+console.log(nouveauMessage)
+```
+
+Gardez également en tête que l’***ordre des paramètres est très important*** ! La fonction a un premier paramètre nommé “score” et un second paramètre nommé “nombreQuestions” : 
+
+- si on appelle la fonction avec 5 et 10, 5 étant le premier paramètre, il ira donc dans la variable “score” ;
+
+- le 10 étant positionné en second, il ira dans la variable “nombreQuestions”, positionnée en second aussi. 
+
+![schéma fonction](/assets/images/2023-07-30 17-41-47.png)
+
+[Cette opération en vidéo](https://openclassrooms.com/fr/courses/7696886-apprenez-a-programmer-avec-javascript/8205714-organisez-votre-code-grace-aux-fonctions#/id/r-8205582)
+
+Exemple :
+
+```javascript
+// Déclarer une fonction
+
+function retournerMessageScore(score, nombreMotMax) {
+    let message = "Le score est de " + score + " sur " + nombreMotMax
+    return message
+}
+
+// Apeller la fonction avec (score et nb de mots)
+
+let retourFonction = retournerMessageScore(1, 3)
+console.log(retourFonction)
+```
+
+### Codez proprement
+
+Vous vous rendrez compte très rapidement que les fonctions sont un élément majeur de votre code. Il est donc très important de ***respecter quelques bonnes pratiques*** pour prévenir tout problème. Voici quelques conseils.
+
+#### Définissez une tâche spécifique pour chaque fonction
+
+Dans l’idéal, on attribue ***une seule tâche à une fonction*** : afficher, calculer, lancer une opération, initialiser… Si une fonction s’occupe de tout gérer à la fois, elle comportera beaucoup de lignes, difficiles à comprendre, à modifier et à tester.
+
+#### Écrivez des fonctions courtes
+
+Dans l'idéal, vos fonctions ne doivent pas dépasser 30 lignes. Si le but de la fonction est clair, un code court est généralement suffisant pour l’atteindre.
+
+Si la fonction prend trop d’ampleur, c’est peut-être qu’elle est mal conçue, qu’elle fait trop de choses, ou qu’il faudrait la découper en plusieurs sous-fonctions.
+
+- Nommez clairement vos fonctions
+
+Comme pour les variables, le nom d’une fonction devrait être suffisamment clair pour permettre d’en deviner le contenu sans lire le code qu’elle contient.
+
+Vous pouvez par exemple utiliser un verbe pour nommer vos fonctions. Si une fonction s’appelle resultat, que fait-elle ? Elle calcule le résultat ? Elle l’affiche ? Elle le réinitialise ? En utilisant des noms tels que afficherResultat, calculerResultat, reinitialiserResultat… là, plus aucune ambiguïté ! 😃
+
+- Nommez clairement vos paramètres
+
+Les paramètres doivent également être le plus explicites possible :
+
+```javascript
+lancerJeu(a) {
+    // code
+}
+```
+
+Que dois-je envoyer à ma fonction pour remplir le paramètre a ? Est-ce qu’il représente le nom du joueur ? La liste des mots qu’il doit taper ? Autre chose ? 
+
+Ici, est donc préférable d’écrire :
+
+```javascript
+lancerJeu(listeMots) {
+    // code
+}
+```
+
+Rien qu’avec le nom, nous savons maintenant que le paramètre contient en réalité un tableau avec une liste de mots. N’oubliez pas non plus qu’en cas d'ambiguïté, vous pouvez toujours insérer un commentaire pour ajouter une précision !
+
+### Organisez votre code en plusieurs fichiers
+
+Découper votre code en plusieurs fonctions permet de mieux organiser vos idées et facilite les modifications, mais ce n’est pas suffisant…
+
+Si votre projet continue de grandir, regrouper toutes vos fonctions au même endroit risque de rapidement causer des problèmes de lisibilité et de navigation. C’est encore plus vrai si vous êtes plusieurs à travailler sur le même projet !
+
+Souvenez-vous, quand nous avons créé notre fichier index.HTML, nous avons écrit :
+
+```javascript
+<script src="script.js"></script>
+```
+
+… afin d’inclure notre fichier script.
+
+Imaginez maintenant que nous voulions créer un fichier de configuration qui contiendrait nos deux tableaux listeMots et listePhrases. Cela nous permettrait de faire évoluer ces tableaux sans risquer de modifier par erreur la logique du code ! 😃
+
+Pour y parvenir, nous pouvons inclure ce nouveau fichier en insérant une nouvelle ligne dans le fichier HTML pour préciser le chemin du nouveau fichier     
+
+```javascript
+<script src="config.js"></script>
+<script src="script.js"></script>
+```
+
+Dans cet exemple, j’ai mis le fichier config.js avant script.js, car les variables que je vais définir dans le fichier config.js seront utilisées par script.js. Elles doivent donc être définies en premier.
+
+Ensuite, nous devons définir le contenu du fichier. Pour cela, nous allons supprimer les deux const listeMots et listesPhrases de script.js, et les copier  dans config.js.
+
+```javascript
+// Liste des mots utilisés pour le jeu
+const listeMots = ['Bonjour', 'Salut', 'Coucou']
+const listePhrases = ['Bonjour, comment allez-vous ?', 'Salut, ça va ?', 'Coucou, ça va ?']
+```
+
+N'hésitez pas à ajouter des commentaires pour donner des précisions dans votre code. Mettre un commentaire inutile n’est pas très grave. En revanche, ne pas avoir un commentaire utile peut parfois faire perdre beaucoup de temps.
+
+[Ces opérations en vidéo](https://openclassrooms.com/fr/courses/7696886-apprenez-a-programmer-avec-javascript/8205714-organisez-votre-code-grace-aux-fonctions#/id/video_Player_3)
+
+
+### Maîtrisez la portée des variables
+
+Nous avons commencé à apprendre le JavaScript en déclarant des variables. Maintenant que vous manipulez des fonctions et des blocs de code, vous devez maîtriser une notion importante : la portée des variables. Pas de panique, je vous explique ! 😉
+
+Les variables ont une portée, qui est définie par l’endroit où cette variable est déclarée. Ainsi, on distingue deux types de variables :  
+
+- les variables globales : visibles et utilisables dans l’ensemble du code ;
+
+- les variables locales : qui ne peuvent être utilisées qu’au sein du bloc de code dans lequel elles sont définies.
+
+Ouh là là là…  Aurais-tu un exemple pour rendre les choses plus claires ? 😱
+
+Bien sûr ! Prenons l’exemple ci-dessous :
+
+```javascript
+let monNombre = 1
+// monNombre est une variable globale, car elle est déclarée en dehors d’un bloc de code
+
+function afficheUnNombre() {
+    let monNombreLocal = 2
+   // monNombreLocal est une variable locale, car déclarée uniquement au sein d’une fonction
+    console.log("Intérieur de la fonction : ")
+    console.log(monNombre) // monNombre est accessible
+    console.log(monNombreLocal) // monNombreLocal est accessible
+}
+
+afficheUnNombre()
+console.log("Extérieur de la fonction : ")
+console.log(monNombre) // monNombre est accessible
+console.log(monNombreLocal) // monNombreLocal n’est pas accesssible
+```
+
+Si vous copiez-collez ce code dans votre éditeur de code, vous constaterez plusieurs choses :
+
+- les chiffres 1 et 2 apparaissent en premier : ils sont affichés dans la fonction afficheUnNombre ;
+
+- le dernier console.log renvoie une erreur, due au fait que la variable monNombreLocal est définie au sein du bloc de code de la fonction afficheUnNombre.
+
+Comme il s’agit d’une variable locale, elle n’est pas accessible dans l’ensemble du code. Elle est donc inconnue lorsqu’on tente de l’afficher hors de la fonction qui la déclare.
+
+À mesure que votre code s’agrandit, les variables s’accumulent. Certaines peuvent désigner le même élément, avoir le même nom… et provoquer des résultats inattendus 😱. ***En restreignant une variable à un bloc de code, vous l’empêchez d'interférer avec une autre variable globale. Cela vous évitera de nombreux bugs particulièrement difficiles à trouver !***
+
+
+### Exercice
+
+- Étape 1 : Découpez votre code en fonctions.
+
+
+
+###  Résumé
+
+Une fonction est un morceau de code qui accomplit une tâche spécifique. L’utilisation de fonctions permet d’organiser son code en blocs fonctionnels.
+
+Pour créer une fonction en JavaScript, on utilise le mot-clé function et on lui attribue un nom.
+
+On peut appeler une fonction en utilisant son nom, suivi de parenthèses  ()  . Si la fonction comporte des paramètres, ceux-ci sont ajoutés entre les parenthèses. 
+
+Vous pouvez définir une valeur de retour que la fonction renvoie après son exécution. Cette valeur retournée par la fonction pourra alors être utilisée dans la suite du code. 
+
+Séparer son code en plusieurs fonctions et en plusieurs fichiers vous permet de mieux découper votre code, et donc de le rendre plus simple à comprendre.  
+
+Une variable déclarée dans un bloc de code n’est accessible que dans ce bloc de code.
+
+
+### +
+
+[source](https://openclassrooms.com/fr/courses/7696886-apprenez-a-programmer-avec-javascript/8205714-organisez-votre-code-grace-aux-fonctions)
+
+---
+
 
