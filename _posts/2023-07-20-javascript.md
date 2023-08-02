@@ -18,7 +18,9 @@ codepen = bac à sable pour tester du code et voir le résultat en direct.
 
     Découverte du language Javascripte et de sa syntaxe.
 
-## Déclarez une variable
+## I. Déclarez une variable
+
+vidéo : 
 
 Pour commencer à programmer en J, il faut absolument déclarer une variable.
 En programmation on manipule plein de données.
@@ -35,7 +37,7 @@ Théorie :
 
 Je veux que mon code retrouve “mon prénom”. “mon prénom” c’est une donnée que je vais ranger dans une variable.
 
-Une variable est toujours un ensemble de 3 éléments : une valeur, un nom, un type.
+Une variable c'est toujours un ensemble de 3 éléments : une valeur, un nom, un type.
 
 ***valeur*** = donnée	içi David  
 ***nom*** = ce qui permet de retrouver notre donnée (comme une étiquette sur notre tiroir 🙂)  
@@ -50,13 +52,13 @@ Pratique :
 ***let***, permet de déclarer une variable dont la valeur peut changer au cours du code.  
 ***const*** (constante), permet de déclarer une variable dont la valeur reste la même tout au long du code.
 
-déclarer une variable : let/const nomVariable = valeur
+déclarer une variable : `let/const nomVariable = valeur`
 
 ex : `const monPrenom = David`		ou	`let monAge = 42`
 
 —
 
-En informatique, une variable est un conteneur qui stocke la donnée temporairement au sein de votre code. Cela vous permet d’enregistrer des données.
+En informatique, <mark>une variable est un conteneur qui stocke la donnée temporairement au sein de votre code. Cela vous permet d’enregistrer des données.</mark>
 
 En tant que développeur, vous utilisez des variables pour stocker un nom d’utilisateur ou encore un chiffre représentant le nombre de produits restants dans votre stock. Cela vous permet de retrouver ces données plus facilement.
 
@@ -125,15 +127,15 @@ Contrairement aux variables déclarées avec let qui peuvent changer de valeur a
 
 ---
 
-## Modifiez une variable
+## II. Modifiez une variable
 
 <mark>Une fois les variables déclarées, on peut les modifier.</mark>
 
 Il y a 3 types de variables, de données basiques : 
 
 - number (3, 42 ...)
-- string ("hello, world!")  Récuperer un nom d'util
-- Boolean (true / false)    Sit un utilisateur est conecté
+- string ("hello, world!")  Récuperer un nom d'utilisateur
+- Boolean (true / false)    Si un utilisateur est conecté
 
 On va toucher n'y au type, n'y au nom, mais juste changer la valeur de la variable, en utilisant des opérations simples (un peu comme en math). Selon le type de donnée que l'on modifie, on ne peut pas réalisé les mêmes opérations.
 
@@ -203,14 +205,18 @@ L'opérateur `+` n'a pas la même action dans le cas d'une valeur "number" ou "s
 
 ## Boolean
 
-Pour manipuler boléen, il n'y a pas l'embarras du choix car il ne prennent que 2 valeurs (true / false), oui/non, vrai/faux, allumé/éteint.
+Pour manipuler un boléen, il n'y a pas l'embarras du choix car il ne prennent que 2 valeurs (true / false), oui/non, vrai/faux, allumé/éteint.
 
 ```javascript
+// On pourra écrire soit
 let monBoolean = true
+// soit
 let monBoolean = false
 ```
 
 ## +
+
+[source](https://openclassrooms.com/fr/courses/7696886-apprenez-a-programmer-avec-javascript/8204726-modifiez-une-variable)
 
 ### Convertire du texte en chiffre
 
@@ -232,13 +238,13 @@ console.log(Number(maVariable) + 5)
 
 ---
 
-## Structurez des données grâce aux objets
+## III. Structurez des données grâce aux objets
 
 ![](/assets/images/2023-07-24 14-34-25.png)
 
 Si un élément a plusieurs valeurs à la fois, on va utiliser les objets javascript.
 
-***Objet*** : sorte de conteneur qui contient ***plusieurs valeurs*** attribuées ***à un même élément***.
+***Objet*** : sorte de conteneur qui contient ***plusieurs valeurs*** attribuées ***à un même élément***. Ces données ne sont pas toutes du même type, certaine sont des string, number, booleen (information binaire).
 
 Pour déclarer un objet, on utilise des accolades.
 
@@ -256,7 +262,7 @@ let monPersonnage = {
 }
 ```
 
-Plus tard si l'on souhaite ***ajouter une propriété à l'objet***, c'est possible : 
+Plus tard si je souhaite ***ajouter une propriété à l'objet***, c'est possible, en utilisant le `.` : 
 
 `nomDeMonObjet.nomDeLaPropriété = valeurDeLaProPriété`
 
@@ -274,7 +280,7 @@ console.log(monPersonnage.couleurPreferee) // Affiche "noir"
 
 -
 
-Lorsque vous manipulez des objets JavaScript, vous avez également besoin d’accéder à leurs propriétés pour les stocker dans des variables, et les utiliser dans la suite de votre code ou dans un autre contexte.
+<mark>Lorsque vous manipulez des objets JavaScript, vous avez également besoin d’accéder à leurs propriétés pour les stocker dans des variables, et les utiliser dans la suite de votre code ou dans un autre contexte.</mark>
 
 Pour accéder à la propriété d’un objet, vous devez utiliser le point `.` suivi du nom de la propriété. Il ne vous reste plus qu’à stocker sa valeur dans une variable.
 
@@ -336,7 +342,9 @@ console.log(texteAffichage) //Afficher la concaténation
 
 ## Regroupez des données grâce aux tableaux
 
-Regrouper des variables en utilisant des tableaux.
+vidéo :
+
+Nos variables commences à se multiplier. on va les regrouper en utilisant des tableaux.
 
 ***Tableau*** : conteneur qui permet de regrouper plusieurs variables ou plusieurs valeurs. Sorte de super variable qui en regroupe plusieurs.
 
@@ -384,7 +392,7 @@ mesFilms.push("Retour vers le futur")
 
 ### Supprimer un élément
 
-méthode ***pop*** : permet de supprimer la dernière valeur de la liste. Pas besoin d'écrir une valeur entre parenthèses.
+méthode ***pop*** : permet de supprimer la dernière valeur de la liste. Pas besoin d'écrire une valeur entre parenthèses.
 
 ```javascript
 let mesFilms = ["Titanic","Jurassic Park","Retour vers le futur"]
@@ -459,15 +467,15 @@ La ***copie par référence***. Les variables font référence au même espace m
 
 ## Résumé
 
-Un ***tableau*** est un conteneur qui permet de regrouper plusieurs valeurs ou variables.
+- Un ***tableau*** est un conteneur qui permet de regrouper plusieurs valeurs ou variables.
 
-Un ***tableau*** possède une (seule) propriété ***length*** qui permet de connaître le nombre de données contenues dans un tableau.
+- Un ***tableau*** possède une propriété ***length*** qui permet de connaître le nombre de données contenues dans un tableau.
 
-Une méthode s’utilise avec des parenthèses `( )` , et permet d’interagir avec le contenu du tableau. Il existe de nombreuses méthodes différentes mises à disposition par le langage.
+- Une méthode s’utilise avec des parenthèses `( )` , et permet d’interagir avec le contenu du tableau. Il existe de nombreuses méthodes différentes mises à disposition par le langage.
 
-Lorsqu’on copie une ***variable simple***, JavaScript réalise une copie par valeur (la valeur est dupliquée).
+- Lorsqu’on copie une ***variable simple***, JavaScript réalise une copie par valeur (la valeur est dupliquée).
 
-Lorsqu’on copie une ***variable complexe***, JavaScript réalise une copie par référence (les deux variables pointent sur la même valeur).
+- Lorsqu’on copie une ***variable complexe***, JavaScript réalise une copie par référence (les deux variables pointent sur la même valeur).
 
 ## +
 
@@ -485,19 +493,43 @@ Pour utiliser des méthodes `()`
 
     Comprendre la logique de programmation de Javascript
 
-Rédiger un programme informatique, qui répond à une logique de programmation. Le navigateur web, est capable de comprendre et d’interpréter ce programme.
+Dans cette deuxième partie du cours,  vous allez rédiger un programme informatique qui répond à une logique de programmation : votre navigateur est capable de comprendre et d’interpréter ce programme.
 
 ### La notion d'algorithme
 
-En tant que développeur, vous rédigez du code dans le but de développer un programme informatique. Vous allez donc écrire, en JavaScript, un ***ensemble d’instructions et d’opérations*** qui seront exécutées par un ordinateur dans un but précis.
+En tant que développeur, vous rédigez du code dans le but de développer un programme informatique. Vous allez donc écrire, en JavaScript, un ***ensemble d’instructions et d’opérations*** qui seront exécutées par un ordinateur dans un but précis.Dans notre cas, nous souhaitons coder un algorithme capable de :
+- proposer des mots à un utilisateur ;
+- vérifier que les mots entrés par l’utilisateur sont corrects. 
+
+Un ***algorithme*** est une façon de concevoir les étapes d’un code dans le but de ***résoudre un problème donné***.
+
+Dans notre cas, l’application AzerType va proposer des mots, et l’utilisateur devra taper ces mots correctement avec son clavier. Notre problème est donc le suivant : comment faire comprendre cela à l’ordinateur ?
+
+L’idéal serait de lui fournir une liste d’étapes pour lui expliquer, pas à pas, chaque instruction qu’il doit exécuter. Eh bien un algorithme, c’est exactement ça !
+
+Notre algorithme pourrait donc ressembler à cette suite d’étapes :
+
+- Étape 1 : L’application propose un mot. 
+
+- Étape 2 : L’utilisateur tape ce mot au clavier. 
+
+- Étape 3 : Si le mot de l’utilisateur est exactement le même que le mot de l’application, alors on ajoute un point au score.
+
+- Étape 4 : On passe au mot suivant.  
+
+- Étape 5 : On recommence à l’étape 1, jusqu’à ce que le temps soit écoulé. 
+
+Je vous rassure, nous n’irons pas plus loin sur la notion d’algorithmique dans ce cours. Tout ce que vous avez besoin de retenir, c’est qu’un algorithme vous aidera à bien penser vos étapes en amont de votre code. Toutefois, si vous souhaitez en savoir plus, n’hésitez pas à consulter le cours [Découvrez le fonctionnement des algorithmes.](https://openclassrooms.com/fr/courses/7527306-decouvrez-le-fonctionnement-des-algorithmes)
 
 ### Organisez votre code grâce aux blocs de code
 
-Les blocs de code sont des regroupements de lignes de code. Ils permettent d’organiser votre code et de clarifier à quoi sert un groupe de lignes de code. En JavaScript, ils sont délimités par des accolades  `{ }`
+Dans les chapitres précédents, nous avons écrit des lignes de code les unes à la suite des autres. Maintenant que nous suivons une logique de programmation, cette logique doit transparaître dans l’organisation de votre code. C’est là qu’interviennent les ***blocs de code***.
+
+<mark>Les blocs de code sont des regroupements de lignes de code. Ils permettent d’organiser votre code et de clarifier à quoi sert un groupe de lignes de code. En JavaScript, ils sont délimités par des accolades  { }</mark>
 
 Exemple de bloc de code :
 
-```javascrip
+```javascript
 {
     const monChiffre = 4
     console.log(monChiffre)
@@ -505,11 +537,17 @@ Exemple de bloc de code :
 ```
 Ici, j’ai utilisé un bloc de code pour déclarer la variable monChiffre.
 
+Mais…. Il est un peu seul, ton bloc de code, non ?
+
+Pour le moment, oui. 😃 Mais dans un programme informatique, les blocs de code sont associés à des ***structures conditionnelles*** et à des ***fonctions***. Je ne rentre pas plus dans les détails pour l’instant, car vous allez justement le découvrir dans cette partie en construisant votre premier fichier JavaScript.
+
 ### Installez votre environnement de travail
 
 Utilisez un éditeur de code (IDE) tel que Visual Studio Code.
 
-Avoir un dossier de travail pour le projet. DS VSCode : File > openFolder > FichierDuProjet
+Une fois votre éditeur lancé, votre première étape consiste à créer un dossier qui contiendra tous les fichiers nécessaires à votre projet.
+
+Dans VSCode : File > openFolder > FichierDuProjet
 
 Pour exécuter du code Javascript, il faut au minimum 2 fichiers :
 - un fichier .html : notre page web.
@@ -549,11 +587,13 @@ console.log("Hello World");
 
 Dans la console, vous verrez notre “Hello World”, qui correspond à l’instruction écrite dans le fichier script.js.
 
+Personne n’est à l'abri d’une erreur de code, même les développeurs les plus expérimentés. Prenez donc l’habitude de tester très régulièrement votre code. Il vous sera alors bien plus facile de trouver votre erreur qu’en ne testant qu’à la fin ! Cela vous évitera également de longues heures de débogage, au passage…
+
 ### Déf
 
 Un ***algorithme*** est une façon de concevoir les étapes d’un code dans le but de résoudre un problème donné.
 
-****IDE*** (Integrated Development Environment, ou environnement de développement intégré). Un IDE permet de regrouper tout ce dont nous aurons besoin pour écrire notre code. Tous les fichiers seront au même endroit, et le code sera coloré pour faciliter la lecture.
+***IDE*** (Integrated Development Environment, ou environnement de développement intégré). Un IDE permet de regrouper tout ce dont nous aurons besoin pour écrire notre code. Tous les fichiers seront au même endroit, et le code sera coloré pour faciliter la lecture.
 
 ### Résumé
 
@@ -581,7 +621,7 @@ Pour écrire un code fonctionnel et permettre à notre ordinateur de réalisé c
 
 Exemple de condition "humaine" : À la boulangerie, si il y a du pain au noix, j'en prends un, sinon je prends une baguette.
 
-Pour un ordinateur (Il faut lui parler dans sa langue).
+Pour un ordinateur, Il faut lui parler dans sa langue :
 
 En programmation, une condition, c'est un test, dont le résultat peut être soit vrai soit faut et en fonction du résultat de ce test, notre programme va effectuer une opération ou bien une autre. Il va agir de manière conditionnelle.
 
@@ -865,11 +905,11 @@ Mais imaginez maintenant que le tableau contienne tout un dictionnaire… Ça va
 
 Il  existe deux principaux types de boucles :
 
-- La boucle for permet de répéter du code lorsque l’on sait d’avance combien de fois il faudra le répéter.
+- La ***boucle for*** permet de répéter du code lorsque l’on sait d’avance combien de fois il faudra le répéter.
 
 Par exemple, si nous voulons demander exactement trois fois à l’utilisateur d’entrer un mot.
 
-- La boucle while permet de répéter du code autant de fois qu’il le faut pour qu’une condition ne soit plus vraie.
+- La ***boucle while*** permet de répéter du code autant de fois qu’il le faut pour qu’une condition ne soit plus vraie.
 
 Par exemple, si nous voulons redemander un mot à l’utilisateur jusqu’à ce que ce mot soit correct.
 
@@ -1387,4 +1427,164 @@ Une variable déclarée dans un bloc de code n’est accessible que dans ce bloc
 
 ---
 
+## Récupérez un élément d’une page web
 
+// vidéo
+
+Jusqu'içi, on a appris des notions de programmation générales. Des briques de base qui resterons valables dans tous les languages de programmations. Mais maintenant, on va se concentrer sur une spécificité de Javascript et on va ***communiquer directement avec le HTML***. Il n'y a que le javascript qui est capable de faire ça.
+
+Concrètement, ça veut dire que l'on va pouvoir ***récupérer, modifier,  créer et supprimer des éléments de notre page HTML***.
+
+Étape 1 : Récupérer un élément. Pour ça, petit rappel HTML. Les balises, éléments de base du codage en HTML.
+
+À partir de maintenant, il va falloir garder en tête que les balises HTML correspondent au code qui se cache derrière chaque éléments de l'interface d'une page web.
+
+Donc la structure d'une page HTML, c'est une grande imbrication d'éléments représentée par des balises.
+
+![Schéma des éléments HTML en branches](/assets/images/2023-08-01 11-59-23.png)
+
+Au fur et à mesure qu'on ajoute des éléments, on rajoute des branches.
+
+C'est l'***arbre DOM***, c'est la ***structure d'une page web*** représentée sous forme d'arbre, avec des branches pour chaques imbrications.
+
+C'est avec ce DOM que l'on va intéragir à partir de maintenant.
+
+getElementById :
+
+Concrétemment, comment intéragir avec le DOM : On va faire appelle à une ***variable globale*** un peu magic qui s'appelle ***document***. En particulier "document" va nous ***permettre d'intéragir avec le DOM grâce à la méthode "getElemntById"***
+
+Exemple :
+
+Sur ma page web, j'ai intégré un petit jeu que j'ai placé dans une div, pour accéder à cette div, je vais écrire en javascript 'document.GetElementById'. Pour que ça marche, il faut que la div ait un "ID".
+
+![](/assets/images/2023-08-01 12-14-29.png)
+
+Voilà, on a récupérer notre élément.
+
+Une fois cela fait, on va pouvoir agir deçu. Modifier son style, son contenu, voir le supprimer. Ce sera dans les chapitres qui suivent.
+
+Mais d'abord, je veux vous montrez une deuxième façon d'***accéder à un élément*** dans le cas où on a pas d'ID. ***Grâce aux sélécteurs CSS***.
+
+Par exemple si on veut accéder à la balise `<main>`, en CSS on écrit `main {propriétés}`.
+
+En javascript on écrit :
+
+```javascript
+// Pour récupérer la balise "main"
+let maBaliseMain = document.querySelector("main")
+
+// Pour récupérer toutes les div de notre document
+let mesBalisesDiv = document.querySelectorALL("div")
+```
+
+Donc :
+
+`querySelector` pour récupérer un élément HTML en particulier.  
+`querySelectorAll` pour récupérer tous les éléments correspondants à un même sélécteur.
+
+Dans mon exemple, je l'utilise pour récupérer toutes les div mais je pouurrai aussi récupérer toutes les images de ma page pour les affichées en grand ou tous les textes pour en changer la couleur.
+
+Le principe, c'est qu'une fois que j'ai récupérer mes éléments, je vais pouvoir les modifier à ma guise.
+
+Génial !
+
+// Fin vidéo
+
+`defer` pour différer l'exécution du script.
+`<script src="script.js" defer></script>`
+
+document = la page HTML
+
+getElementById : Récupérer élémént par son ID
+
+```html
+<div id="divJeu">
+
+</div>
+```
+
+```javascript
+let divJeu = document.getElementById("divJeu")
+// Pour tester avec console.log
+console.log(divJeu)
+```
+
+Methode querySelector
+
+```html
+<div id="divJeu">
+    <h2>Le jeu</h2>
+</div>
+```
+
+```javascript
+let h2 = document.querySelector("#divJeu h2")
+// Pour tester avec console.log
+console.log(h2)
+```
+
+Methode querySelectorALL
+
+```html
+//  Récupérer l'intégralité des h2
+<div id="divJeu">
+    <h2>Le jeu</h2>
+</div>
+<div id="divAutre">
+    <h2>Une autre Div</h2>
+</div>
+```
+
+```javascript
+let listeh2 = document.querySelectorAll("#divJeu h2")
+// Pour tester avec console.log
+console.log(listeh2)
+```
+
+### Résumé
+
+Une page web est constituée de balises HTML, et repose sur une structure que l’on appelle DOM. Cette structure permet de relier les balises entre elles.
+
+Pour récupérer un élément du DOM :
+
+- utilisez `defer` dans l’inclusion de vos fichiers JS pour retarder leur prise en compte, afin que la variable document ait le temps d’être créée ; 
+
+- partez du point d’entrée du DOM : la variable `document` ;
+
+- utilisez les méthodes adaptées : `getElementById`, `querySelector` ou `querySelectorAll`.
+
+### +
+
+[source](https://openclassrooms.com/fr/courses/7696886-apprenez-a-programmer-avec-javascript/8205925-recuperez-un-element-d-une-page-web) [HTMLElement Moz](https://developer.mozilla.org/fr/docs/Web/API/HTMLElement)
+
+---
+
+## Modifiez un élément d’une page web
+
+### Modifiez un élément du DOM
+
+Pour modifier un élément du DOM, JavaScript propose là encore de nombreuses méthodes. Nous en aborderons deux dans ce chapitre :
+
+- setAttribute : méthode la plus générique, qui permet de spécifier n’importe quel attribut ;
+
+- classList : propriété spécifique qui permet de modifier des classes. 
+
+
+
+## Créez un nouvel élément dans une page web
+
+
+
+
+
+
+
+###  Résumé
+
+Utilisez des attributs pour configurer les éléments HTML d’une page web.
+
+Modifiez la valeur des attributs : 
+
+- en utilisant la méthode setAttribute ;
+
+- en utilisant la syntaxe : elementHtml.nomAttribut = “nouvelle valeur d’attribut”.
