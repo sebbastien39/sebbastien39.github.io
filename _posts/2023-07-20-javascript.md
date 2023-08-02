@@ -1142,7 +1142,7 @@ if(choix === "mots"){
 
 ## Organisez votre code grâce aux fonctions
 
-### Retranscription vidéo
+// vidéo
 
 Jusqu'içi, on a écrit notre code un peu en bazarre, comme ça vient.
 
@@ -1182,7 +1182,7 @@ Une dernière chose, étends donner que l'on va commencer à compartimenter notr
 
 À notre niveau, on va utiliser surtout des variables locales. <mark>Moins on utilise de variables globales, meilleur est le code</mark>.
 
--
+// Fin vidéo
 
 Notre projet avance ! Nous pouvons maintenant proposer plusieurs mots ou phrases à l’utilisateur, compter son score et l’afficher. 🚀
 
@@ -1490,6 +1490,242 @@ Génial !
 
 // Fin vidéo
 
+
+Dans la partie précédente, nous avons découvert la logique de programmation en JavaScript, et nous avons manipulé des structures conditionnelles, des boucles et des fonctions. Nous avons fait une belle partie du chemin, mais pour l’instant, nous nous sommes contentés d’écrire dans la console. Notre prochaine étape est donc de manipuler directement une page HTML pour la rendre interactive. Dans le cadre de notre application Azertype, cela permettra d’afficher en HTML les mots à recopier et le score.
+
+Notre première étape, dans ce chapitre, est d’établir un lien entre le code HTML et le code JavaScript. Cela nous permettra, dans le chapitre suivant, de modifier le code HTML directement depuis notre code JavaScript. Alors, avant de rentrer dans le vif du sujet, regardons ensemble comment une page web est structurée ! 😉
+Appréhendez la structure d’une page web
+
+Généralement, une page web est constituée de deux parties :
+
+- un head qui donne des informations générales sur la page ;
+
+- un body qui contient ce qui est affiché dans la page. 
+
+- Voici un exemple de body pour une page simple :
+
+```html
+<body>
+    <header>
+        <h1>AzerType</h1>
+    </header>
+
+    <main>
+        <div>
+            <h2>Le jeu</h2>
+            <p>Un petit texte</p>
+        </div>
+        <div>
+            <h2>Une autre div</h2>
+            <p>Un autre texte</p>
+        </div>
+    </main>
+
+    <footer>
+        @Copyright : OpenClassrooms.
+    </footer>
+</body>
+```
+
+Ce code HTML est simple. Il est constitué d’un header avec un titre, d’un corps (main) et d’un footer.
+
+Ce code est un peu structuré comme un arbre, c’est pourquoi on appelle cette structure l’arbre DOM (Document Object Model, ou modèle objet du document, en français). En fait, JavaScript ne lit pas une page HTML comme du simple texte. Il la représente comme une structure organisée en parents/enfants, et composée de nœuds qui représentent des balises.
+
+Ouh là là là, ça devient un peu abstrait ton truc, là… 😅
+
+C’est un peu imagé oui, mais revenons ensemble sur l’illustration de l’arbre DOM ci-dessous :
+
+![](/assets/images/16836136690232_STATIC-P3C1.png)
+
+|Illustration de la structure de l’arbre DOM|
+
+Dans la structure ci-dessus :
+
+- le body en haut représente la racine de l’arbre DOM ;
+
+- de cette racine se déploient des branches (en bleu sur l’image) ;
+
+- ces branches mènent à des nœuds : header, main, footer, h1, h2, div, p… ;
+
+- les branches se terminent généralement par une feuille : texte. 
+
+En développement informatique, on dit que header, main et footer sont les noeuds enfants de body, et que body est le parent de ces nœuds.
+
+Chaque nœud de cet arbre DOM (header, main, div…) est un objet HTMLElement. Pour le dire autrement, JavaScript a regroupé dans un même objet deux choses : 
+
+- les informations sur cet objet (son nom, son id, sa position, etc.) : ce sont les propriétés de l’objet ;
+
+- ce que cet objet est capable de faire (réagir au clic, par exemple) : ce sont les méthodes. 
+
+Dans ce cours, nous explorons plusieurs propriétés et méthodes, mais il en existe d’autres. Si vous voulez en savoir plus, la documentation est à votre disposition. 😃
+
+### Récupérez un élément du DOM
+
+Dans ce chapitre, notre but est de récupérer certains éléments de l’arbre DOM, qui a pour racine la balise body. Cependant, vous vous souvenez peut-être que nos fichiers JavaScript sont stockés dans la balise head, qui se situe avant le body.
+
+Utilisez ***defer*** pour différer l’exécution du script
+
+Pour manipuler le DOM, JavaScript doit ainsi construire une variable globale, document, qui est donc accessible depuis n’importe où dans notre code. Cependant, pour construire cette variable, la page HTML doit être chargée en entier. Hors, le script étant lancé dans la balise head, avant que le body ne s’affiche à l’écran, la page HTML n’existe pas encore. Nous devons donc attendre que la page ait fini de charger avant d’utiliser la variable document.
+
+Pour résoudre ce problème, la méthode la plus efficace est d’ajouter le mot-clé defer dans la balise script. Concrètement, cela revient à demander au navigateur “Si tu rencontres la balise script, diffère sa prise en compte et attends que la page soit chargée.”
+
+```js
+<script src="scripts/config.js" defer></script>
+<script src="scripts/script.js" defer></script>
+<script src="scripts/main.js" defer></script>
+```
+
+### Utilisez différentes syntaxes pour récupérer un élément
+
+JavaScript propose tout un éventail de méthodes pour récupérer les éléments du DOM. Dans ce chapitre, nous en aborderons trois :
+
+- getElementById ;
+
+- querySelector ;
+
+- querySelectorAll.
+
+Il existe bien sûr d’autres méthodes, et je vous invite d’ailleurs à les découvrir par vous-même. L’essentiel est de choisir la méthode la plus adaptée à la problématique suivante : cibler le ou les éléments qui nous intéressent au milieu d’une page HTML souvent très conséquente. 
+
+Récupérez un élément avec ***getElementById***
+
+La première méthode, et probablement la plus simple, est getElementById. Comme son nom l’indique, elle permet de récupérer un élément en fournissant son id en paramètre.
+
+- Dans notre application par exemple, nous affichions jusqu’à maintenant le mot à recopier dans le texte du prompt. Désormais, notre objectif est de l’afficher dans une zone de la page dédiée.
+
+Pour cela, nous pouvons commencer par créer une div dans le HTML. Pour la distinguer des autres, nous lui fournissons un id :
+
+```html
+<body>
+    <div id="zoneProposition">Cachalot</div>
+</body>
+```
+
+Pour accéder à cette balise, nous allons donc écrire :
+
+```js
+let baliseZoneProposition = document.getElementById("zoneProposition");
+console.log(baliseZoneProposition);
+```
+
+Ici, nous avons demandé à JavaScript, depuis document, donc toute la page : “Trouve-moi un élément HTML qui a pour id zoneProposition”. Puis nous avons mis le résultat dans la variable baliseZoneProposition. 
+
+Quand nous faisons un console.log de cette variable, nous constatons bien le contenu de notre variable baliseZoneProposition, et nous retrouvons bien notre div :
+
+![](/assets/images/2023-08-02 13-08-57.png)
+
+Cette variable est un objet de type HTMLElement. Si nous cliquons sur le petit triangle à côté de cette div pour déployer le contenu, les détails de cet objet HTMLElement vont s’afficher, comme dans la capture d’écran ci-dessous.
+
+[capture écran](https://openclassrooms.com/fr/courses/7696886-apprenez-a-programmer-avec-javascript/8205925-recuperez-un-element-d-une-page-web#/id/r-8208156)
+
+Ah oui…. Ca fait beaucoup d'informations, tout ça !
+
+Eh oui… JavaScript propose beaucoup de propriétés et de méthodes sur les objets HTLMElement. Pour vous, ce sont autant d’opportunités d’aller les piocher en fonction de vos besoins !
+
+Enfin, comme pour n’importe quel objet en JavaScript, vous pouvez accéder aux propriétés de votre nœud grâce au point “.” .
+
+Par exemple, pour afficher la hauteur de l’élément dans votre console, vous pouvez écrire :
+
+```js
+console.log(baliseZoneProposition.clientHeight);
+```
+
+Récupérez un élément ***QuerySelector***
+
+Lorsqu’on a un id sur nos éléments, document.getElementById est une bonne option pour les récupérer. Malheureusement, il arrive régulièrement que ça ne soit pas le cas !
+
+JavaScript a donné une réponse particulièrement intuitive à ce problème : utiliser les sélecteurs CSS. En gros, si vous savez désigner un élément en CSS, alors il vous suffit de reprendre exactement la même syntaxe ! 😃
+
+Modifions légèrement le contenu de notre page HTML pour illustrer cela :
+
+```html
+<body>
+    <div id="zoneProposition">
+        Entrez le mot : <span>Cachalot</span>
+    </div>
+</body>
+```
+
+Pour mettre le mot Cachalot en gras en CSS, nous aurions écrit :
+
+```js
+#zoneProposition span {
+    font-weight: bold;
+}
+```
+
+Ce code signifie : “Il faut mettre la police d’écriture en gras pour tous les span contenus dans un élément qui a l’id zoneProposition.”
+
+querySelector nous permet de trouver le premier élément qui correspond au sélecteur CSS proposé :
+
+```js
+let baliseZonePropositionSpan = document.querySelector("#zoneProposition span");
+console.log(baliseZonePropositionSpan);
+```
+
+Et voilà le résultat dans la capture d’écran ci-dessous : nous voyons dans la console que nous avons bien trouvé notre span.
+
+[Résultat](https://openclassrooms.com/fr/courses/7696886-apprenez-a-programmer-avec-javascript/8205925-recuperez-un-element-d-une-page-web#/id/r-8208185)
+
+Notez que  #  est présent devant l’id, comme on l’écrirait en CSS, alors que ce  #  n’était pas nécessaire avec getElementById.
+
+Récupérez plusieurs éléments avec ***QuerySelectorAll***
+
+Ici, le principe est le même que pour tous les éléments dans une liste de type NodeList (ou liste de nœuds, en français).
+
+Modifions à nouveau notre body :
+
+```html
+<body>
+    <div class="zoneChoix">
+        <input type="radio" name="optionSource" id="mots" value="1" checked>
+        <label for="mots">Mots</label>
+        <input type="radio" name="optionSource" id="phrases" value="2">
+        <label for="phrases">Phrases</label>
+    </div>
+    <div class="zoneProposition">
+        Entrez le mot : <span>Cachalot</span>
+    </div>
+
+</body>
+```
+
+Dans ce code, j’ai ajouté une nouvelle div avec la classe zoneChoix. Cette div contient deux inputs de type radio.
+
+Pour récupérer tous les inputs de type radio d’un seul coup, je peux donc écrire :
+
+```js
+let listeInputRadio = document.querySelectorAll(".zoneChoix input");
+console.log(listeInputRadio);
+```
+
+Notez que j’ai écrit .zoneChoix et pas #, car ici, j’ai mis une classe à ma div et pas un id.
+
+Et voici le résultat : nous obtenons une NodeList.
+
+[Résultat](https://openclassrooms.com/fr/courses/7696886-apprenez-a-programmer-avec-javascript/8205925-recuperez-un-element-d-une-page-web#/id/r-8208212)
+
+Nous voyons bien ici notre NodeList. Pour reprendre l’image de l’arbre DOM, JavaScript a sélectionné dans cet arbre les nœuds qui correspondent à notre sélecteur CSS.
+
+Nous allons devoir parcourir les différents éléments de cette liste un par un pour y accéder. Nous utiliserons donc une boucle :
+
+```js
+for (let i = 0; i < listeInputRadio.length; i++) {
+    console.log(listeInputRadio[i]);
+}
+```
+
+Et voilà le résultat, nous retrouvons bien le détail de tous nos éléments :
+
+[Résultat](https://openclassrooms.com/fr/courses/7696886-apprenez-a-programmer-avec-javascript/8205925-recuperez-un-element-d-une-page-web#/id/r-8208233)
+
+[Récap vidéo](https://openclassrooms.com/fr/courses/7696886-apprenez-a-programmer-avec-javascript/8205925-recuperez-un-element-d-une-page-web#/id/video_Player_2)
+
+
+---
+
+
+
 `defer` pour différer l'exécution du script.
 `<script src="script.js" defer></script>`
 
@@ -1566,25 +1802,201 @@ Pour récupérer un élément du DOM :
 Pour modifier un élément du DOM, JavaScript propose là encore de nombreuses méthodes. Nous en aborderons deux dans ce chapitre :
 
 - setAttribute : méthode la plus générique, qui permet de spécifier n’importe quel attribut ;
-
 - classList : propriété spécifique qui permet de modifier des classes. 
 
+```html
+<img id="premiereImage" src="image.jpg" alt="Ceci est une image de test" class="photo flexCenter">
+```
 
+setAttribute pour modifier les attributs
+
+```js
+let baliseImage = document.getElementById("premiereImage");
+baliseImage.setAttribute("alt", "Ceci est la nouvelle valeur de alt");
+```
+
+nous pouvons plus simplement écrire :
+
+```js
+baliseImage.alt = "Ceci est une image de test modifiée";
+```
+
+classList pour modifier les classes :
+
+```html
+<div class="listeMots centree actif photo"></div>
+```
+
+```js
+    baliseImage.alt = "Ceci est une image de test modifiée";
+    baliseImage.classList.add("nouvelleClasse")
+    baliseImage.classList.remove("photo")
+```
 
 ## Créez un nouvel élément dans une page web
 
+Nous savons maintenant comment modifier un élément existant. Mais comment créer un nouvel élément dans une page web ? La façon de faire est toujours la même : d’abord créer l’élément, puis le lier à un élément déjà existant de la page.
 
+Pour créer nos éléments, là encore JavaScript nous propose plusieurs manières de faire. Nous en aborderons deux dans ce chapitre :
 
+- la méthode createElement ;
 
+- la propriété innerHTML. 
 
+### Créez une nouvelle balise grâce à createElement
 
+CreateElement est une méthode fournie par JavaScript, accessible depuis document. Elle permet de créer n’importe quelle balise :
 
-###  Résumé
+```js
+let nouvelElement = document.createElement("div");
+```
 
-Utilisez des attributs pour configurer les éléments HTML d’une page web.
+Ici, vous pouvez remplacer div par le nom de balise que vous désirez, section, p, h1, etc. Une fois cette balise créée, vous pouvez la configurer avec les méthodes que nous avons vues dans le chapitre précédent. 
 
-Modifiez la valeur des attributs : 
+Dans nouvelElement, nous aurons un objet HTMLElement qui représente la balise que nous avons créée. 
+Insérez votre balise dans la page
 
-- en utilisant la méthode setAttribute ;
+Une fois l’élément créé, il n'apparaît pas encore dans la page. Pour que cette nouvelle balise apparaisse, nous devons l’insérer dans l’arbre DOM afin que JavaScript sache exactement à quel endroit il faudra mettre l’élément. Pour cela, nous devons : 
 
-- en utilisant la syntaxe : elementHtml.nomAttribut = “nouvelle valeur d’attribut”.
+- déterminer quel sera l’élément parent ;
+
+- utiliser appendChild (littéralement en anglais : “ajouter un enfant”).
+
+```js
+// Récupérer un élément parent existant
+let parentElement = document.getElementById("conteneur");
+
+// Ajouter le nouvel élément au parent
+parentElement.appendChild(nouvelElement);
+```
+
+ci, j’ai ajouté une balise div à un élément que j’ai récupéré grâce à getElementById.
+
+Il existe d’autres méthodes pour insérer des éléments dans l’arbre DOM, comme prepend, before ou insertAdjacentElement. N’hésitez pas à consulter la documentation pour en savoir plus.
+Utilisez la propriété innerHTML pour insérer du HTML
+
+Avec la méthode createElement, nous créons un élément que nous pouvons modifier et insérer dans le HTML. Mais que se passe-t-il quand nous devons créer et imbriquer de nombreux éléments ?
+
+Regardons ensemble avec cet exemple plus complexe :
+
+```js
+// Définition des variables contenant le texte du titre et du paragraphe
+let contenuTitre = "Azertype"
+let contenuParagraphe = "L'application pour apprendre à taper plus vite !"
+
+// Création d'un div avec createElement. Dans cette div, on va créer un titre h1 et un paragraphe p
+let nouvelleDiv = document.createElement("div")
+let nouveauTitre = document.createElement("h1")
+let nouveauParagraphe = document.createElement("p")
+
+// On ajoute du texte dans le titre et le paragraphe
+nouveauTitre.textContent = contenuTitre
+nouveauParagraphe.textContent = contenuParagraphe
+
+// On ajoute le titre et le paragraphe dans la div
+nouvelleDiv.appendChild(nouveauTitre)
+nouvelleDiv.appendChild(nouveauParagraphe)
+
+// On ajoute la div dans le body
+let body = document.querySelector("body")
+body.appendChild(nouvelleDiv)
+```
+
+Dans le code ci-dessus :
+
+- je crée deux variables qui vont contenir le texte du titre et du paragraphe ;
+
+- je crée trois éléments, une div, un titre et un paragraphe ;
+
+- j’insère du texte créé avec les variables dans le titre et le paragraphe ;
+
+- j’insère du titre et du paragraphe en tant qu’enfants de la div ;
+
+- j’insère une div en tant qu’enfant de la balise body. 
+
+Cela fonctionne parfaitement, et donne le résultat suivant :
+
+![](/assets/images/2023-08-02 12-54-01.png)
+
+Alors oui, ça marche, mais avouez que c’est un peu fastidieux avec la méthode createElement. Comment savoir avec précision quels éléments sont les enfants de qui, quand le code est complexe ? Tout cela rend la maintenance compliquée… Dans ce cas, la solution est d’écrire directement du HTML, sous forme de texte, et de l’insérer dans une propriété innerHTML. 
+Utilisez l’interpolation pour générer du HTML
+
+Pour générer le HTML, nous pouvons utiliser la concaténation, comme nous l’avons vu au début de ce cours avec + .  Dans ce chapitre, l’heure est venue de découvrir une nouvelle méthode plus efficace encore : l’interpolation.
+
+L’interpolation ? 🤨 Ça marche comment ?
+
+L’interpolation consiste à entourer la chaîne de caractères avec des backticks : `  . Ce caractère correspond à l’accent du “è”, mais sans le e en dessous 🙂. Ainsi, quand nous voulons insérer une variable, il suffit de l’entourer avec${} .
+
+Voici un exemple :
+
+```js
+let contenuTitre = "Azertype"
+let contenuParagraphe = "L'application pour apprendre à taper plus vite !"
+
+let div = `
+    <div>
+        <h1>${contenuTitre}</h1>
+        <p>${contenuParagraphe}</p>
+    </div>
+```
+
+OK je vois…. Mais du coup pourquoi utiliser ça plutôt que l’opérateur + ?
+
+Car l’interpolation est plus sécurisée que la concaténation simple avec  +  , et souvent plus facile à lire. N’hésitez donc pas à vous en servir à chaque fois que vous en avez besoin !
+Insérez votre HTML grâce à innerHTML
+
+Maintenant que le code HTML est généré, comme avec createElement, nous devons l’insérer dans un élément existant de la page. Pour cela, on choisit la balise qui va contenir notre code HTML, et on met simplement ce code HTML dans la propriété innerHTML :
+
+```js
+let body = document.querySelector("body")
+body.innerHTML = div
+```
+
+Et voilà, le tour est joué ! 🥳
+
+[recap  vidéo](https://openclassrooms.com/fr/courses/7696886-apprenez-a-programmer-avec-javascript/8206130-creez-un-nouvel-element-dans-une-page-web#/id/r-8206109)
+
+### résumé
+
+Créez un nouvel élément HTML : 
+
+- en utilisant la méthode createElement puis en liant l’élément créé à la page grâce à appendChild ;
+
+- en utilisant la propriété innerHTML pour insérer directement du HTML sous forme de texte à l’intérieur d’une balise.
+
+L’interpolation permet de générer facilement des chaînes de caractères complexes en utilisant des backticks.
+
+---
+---
+---
+---
+
+## Interagissez avec un élément d’une page web grâce aux événements
+
+//vidéo
+
+Depuis le début de ce cours, on a écrit du code qui s'exécute ligne par ligne jusqu'à la fin du programme. Un peu comme un livre qu'on lirait de la première ligne jusqu'à la dernière page. Mais maintenant ça va changer parqu'on va commencer à utiliser des événements.
+
+En programmation, un événement c'est un signal qui est envoyer par le navigateur.
+
+Par exemple, pour indiquer que l'utilisateur a réaliser une action. Le fait de cliquer sur un bouton est un événement, le fait de terminer le chargement d'une page aussi. Le fait d'envoyer un formulaire, pareil !
+
+Toutes ces actions, ces événements peuvent envoyer un signal.
+
+À partir de maintenant, on va utiliser ces signauxpour lancer l'exécution de certaines fonctions dans notre code. En gros, les signaux liers au événements vont agir un peu commme un coup de siflet et indiquer le top départ d'une action programmée. On appelle ça la "programmation événementielle".
+
+Le principe, c'est d'au lieu d'écrire notre code dans l'ordre chronologique pour qu'il s'exécute ligne par ligne, on va écrire des blocs de codes qui ne vont pas êtres exécutées automatiquement.
+
+Ces blocs de codes, on va faire en sorte que par défaut, ils ne soient pas pris en compte. Dans le cas ou un événement spécifique se réalise et seulement dans ce cas là, alors notre bloc de codes va s'exécuté.
+
+Par exemple, on peu vouloir faire en sorte que "bonjour" s'affiche seulement quand l'utilisateur clique sur le bouton. Dans ce cas, on va utilisé la programmation événementielle.
+
+En fait, au lieu de se lire comme un roman du début jusqu'à la fin, notre code va commencer à ce comporter un peu comme dans un jeu vidéo : si je vais parler au grand ssage de la fôret au début du jeux, il n'a rien à me dire. Quand j'y retourne après avoir sauver le dragon, alors saudainement, il a des tas de conseils à me donner. C'est un peu le même principe.
+
+Concrêtement, comment notre code va savoir si un événement c'est produit ou non ? Il va tendre l'oreil...
+
+On va utiliser un fonction "eventListener", fonction charger d'écouté un événement.
+
+Pour créer in Listener : 
+
+Récupérer un élément de la page HTML
