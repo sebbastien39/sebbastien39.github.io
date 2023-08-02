@@ -139,7 +139,7 @@ Il y a 3 types de variables, de données basiques :
 
 On va toucher n'y au type, n'y au nom, mais juste changer la valeur de la variable, en utilisant des opérations simples (un peu comme en math). Selon le type de donnée que l'on modifie, on ne peut pas réalisé les mêmes opérations.
 
-## Number
+### Number
 
 Pour les valeurs de type "number", on peut utiliser les opérations mathématiques simples :
 
@@ -175,7 +175,7 @@ nombreUtilisateurs = 100
 
 |+= |-= |/= | *= |
 
-## modifier une valeur de type "string"
+### modifier une valeur de type "string"
 
 Pour modifier valeur string on lui ajoute des mots > concaténation.
 
@@ -203,7 +203,7 @@ L'opérateur `+` n'a pas la même action dans le cas d'une valeur "number" ou "s
 - il additionne les number.
 - il concatène les chaînes de caractères.
 
-## Boolean
+### Boolean
 
 Pour manipuler un boléen, il n'y a pas l'embarras du choix car il ne prennent que 2 valeurs (true / false), oui/non, vrai/faux, allumé/éteint.
 
@@ -214,7 +214,7 @@ let monBoolean = true
 let monBoolean = false
 ```
 
-## +
+### +
 
 [source](https://openclassrooms.com/fr/courses/7696886-apprenez-a-programmer-avec-javascript/8204726-modifiez-une-variable)
 
@@ -294,11 +294,11 @@ console.log(nomDeMonPersonnage)
 console.log(monPersonnage.nom)
 ```
 
-## Def
+### Déf
 
 Un ***Object*** (objet, en français) JavaScript est un conteneur. Il est composé de propriétés qui ont chacune une valeur. Ainsi, le type de donnée Object offre la possibilité de stocker plusieurs valeurs en une seule fois, plutôt que de devoir stocker séparément nos valeurs dans plusieurs variables différentes.
 
-## Résumé
+### Résumé
 
 Un ***objet*** en JavaScript peut posséder plusieurs propriétés qui auront pour chacune d’elles une valeur.
 
@@ -306,7 +306,7 @@ Pour déclarer un objet en JavaScript, vous devez utiliser les accolades  `{ }`
 
 Pour ajouter ou récupérer une propriété, vous devez utiliser le point `.`
 
-## Exercice
+### Exercice
 
 ```javascript
 const ticket = {
@@ -334,7 +334,7 @@ console.log(texteAffichage) //Afficher la concaténation
 
 ```
 
-## +
+### +
 
 [source](https://openclassrooms.com/fr/courses/7696886-apprenez-a-programmer-avec-javascript/8204834-structurez-des-donnees-grace-aux-objets).
 
@@ -453,7 +453,7 @@ let variableComplexe3 = [...variableComplexe1];
 
 `sort` pour trier les données.
 
-## Déf
+### Déf
 
 Un ***tableau*** en JavaScript est donc un objet qui permet de lister plusieurs variables ou valeurs, et de les regrouper.
 
@@ -465,7 +465,7 @@ La ***copie par valeur***. Nous avons copié le contenu d’une variable à l’
 
 La ***copie par référence***. Les variables font référence au même espace mémoire.
 
-## Résumé
+### Résumé
 
 - Un ***tableau*** est un conteneur qui permet de regrouper plusieurs valeurs ou variables.
 
@@ -477,7 +477,7 @@ La ***copie par référence***. Les variables font référence au même espace m
 
 - Lorsqu’on copie une ***variable complexe***, JavaScript réalise une copie par référence (les deux variables pointent sur la même valeur).
 
-## +
+### +
 
 Déclarer tableau `[]`  
 Déclarer objet `{}`  
@@ -580,7 +580,7 @@ La ligne `<script src="script.js"></script>` va lier fichier HTML au fichier JS,
 console.log("Hello World");
 ```
 
-#### Affichez la console de votre navigateur
+### Affichez la console de votre navigateur
 
 - Ouvrir index.HTML dans navigateur (Ds VSCode : Clic D, Reveal in File Explorer).
 - Afficher les Dev tool > Console
@@ -830,7 +830,7 @@ Vous pouvez utiliser des booléens pour les tests de vos conditions, ou des opé
 
 ## Répétez du code grâce aux boucles
 
-### Retranscription vidéo
+// vidéo
 
 Je veux que mon téléphone affiche la liste de mes contacts. CaD, la photo de mon ami n°1, n°2, n°3, etc. Le problème, j'ai 500 contacts et je ne vais pas écrire l'instruction 500 fois. Pas de problème, je vais utiliser une boucle.
 
@@ -879,8 +879,7 @@ La boucle va tourner jusqu'à ce qu'elle trouve le contact "Alice".
 
 Au moment où l'on sort de la boucle, on sait que "Alice" est le contact n°i, on va pouvoir afficher son numéro de téléphone avec `console.log(listContact[i].telephone)`
 
-
--
+// Fin vidéo
 
 ### Découvrez les boucles
 
@@ -1402,8 +1401,7 @@ Comme il s’agit d’une variable locale, elle n’est pas accessible dans l’
 
 ### Exercice
 
-- Étape 1 : Découpez votre code en fonctions.
-
+[Découpez votre code en fonctions](https://openclassrooms.com/fr/courses/7696886-apprenez-a-programmer-avec-javascript/8205714-organisez-votre-code-grace-aux-fonctions#/id/r-8205679)
 
 
 ###  Résumé
@@ -1580,9 +1578,7 @@ Pour résoudre ce problème, la méthode la plus efficace est d’ajouter le mot
 JavaScript propose tout un éventail de méthodes pour récupérer les éléments du DOM. Dans ce chapitre, nous en aborderons trois :
 
 - getElementById ;
-
 - querySelector ;
-
 - querySelectorAll.
 
 Il existe bien sûr d’autres méthodes, et je vous invite d’ailleurs à les découvrir par vous-même. L’essentiel est de choisir la méthode la plus adaptée à la problématique suivante : cibler le ou les éléments qui nous intéressent au milieu d’une page HTML souvent très conséquente. 
@@ -1859,7 +1855,6 @@ Insérez votre balise dans la page
 Une fois l’élément créé, il n'apparaît pas encore dans la page. Pour que cette nouvelle balise apparaisse, nous devons l’insérer dans l’arbre DOM afin que JavaScript sache exactement à quel endroit il faudra mettre l’élément. Pour cela, nous devons : 
 
 - déterminer quel sera l’élément parent ;
-
 - utiliser appendChild (littéralement en anglais : “ajouter un enfant”).
 
 ```js
@@ -1997,6 +1992,124 @@ Concrêtement, comment notre code va savoir si un événement c'est produit ou n
 
 On va utiliser un fonction "eventListener", fonction charger d'écouté un événement.
 
-Pour créer in Listener : 
+// Fin vidéo
 
-Récupérer un élément de la page HTML
+Nous savons désormais comment récupérer un élément HTML, le modifier et en créer de nouveaux. Dans ce chapitre, nous apporterons une nouvelle dimension à notre page grâce à la ***programmation événementielle***. Concrètement, nous allons découvrir comment ***réagir à des événements*** comme le clic ou l’utilisation du clavier, pour rendre notre projet interactif ! C’est parti !  🚀
+
+### Découvrez la programmation événementielle
+
+Jusqu’à présent, notre code s’est toujours exécuté de manière ***séquentielle*** : d’abord la première instruction, puis la seconde, et ainsi de suite jusqu’à ce que toutes les instructions aient été exécutées. Dans ce chapitre, nous allons aborder une nouvelle manière d’envisager la programmation, avec la ***programmation événementielle***.
+
+Un ***événement*** correspond à une action spécifique, comme par exemple le clic sur un bouton, ou la frappe d’un clavier. Ainsi, la programmation événementielle consiste à ***réagir à ces événements et exécuter du code au moment où ces événement se produisent***.
+
+Pour implémenter cela, nous devons d’abord dire à JavaScript de les ***écouter grâce à un eventListener***, littéralement un “écouteur d’évènement”, en français. Puis, nous devons ***lier l’événement à un bloc de code***. C’est parti ! 🚀
+
+### Écoutez un événement avec addEventListener
+
+AddEventListener est une méthode fournie par JavaScript, qui peut être appelée directement depuis les éléments HTML. Cette méthode prend deux paramètres : 
+
+- le nom de l’événement, comme click, par exemple ;
+- une fonction. 
+
+La fonction peut s’écrire de deux manières différentes que nous allons voir :
+
+- les fonctions classiques avec le mot-clé function ;
+- les fonctions fléchées. 
+
+__Utilisez addEventListener avec le mot-clé function__
+
+Prenons un exemple très simple pour illustrer ceci. Créons un bouton dans un fichier HTML :
+
+```html
+<button id="monBouton">Cliquez-moi !</button>
+```
+
+Dans le fichier JavaScript, nous allons récupérer ce bouton et ajouter un écouteur :
+
+```js
+    let monBouton = document.getElementById("monBouton");
+    monBouton.addEventListener("click", function () {
+        console.log("Vous avez cliqué sur le bouton")
+    });
+```
+
+D’abord nous récupérons monBouton, jusqu’ici, pas de souci. Ensuite, nous définissons une fonction avec le mot-clé function.
+
+Heuu…. Mais la fonction n’a pas de nom ? C’est normal… ?
+
+Eh oui ! Cette fonction n’a pas de nom, c’est ce qu’on appelle une ***fonction anonyme***. Elle est créée au moment où nous faisons notre addEventListener.
+
+Si nous exécutons ce code, le console.log ne s’affichera pas, car nous avons simplement ***ajouté un écouteur d’événement***. Nous avons dit à ce dernier : “Lorsque l’événement click se produit sur monBouton, alors tu vas exécuter la fonction que je te donne”. Par conséquent, tant qu’on ne clique pas sur le bouton, il ne se passe rien. En revanche, le console.log apparaîtra à l’instant où on cliquera dessus.
+
+Ainsi, gardez bien en tête que, une fois que l’addEventListener est exécuté, la fonction passée en paramètre ne se lance pas immédiatement. Cette dernière sera lancée :
+
+- au moment où l'événement qu’on écoute (ici, un click sur monBouton) se produit ;
+- autant de fois que l’événement se produit (si on clique dix fois, nous verrons dix fois le message).
+
+__Utilisez addEventListener avec une fonction fléchée__
+
+Dans l’exemple précédent, pour créer une fonction nous avons utilisé le mot-clé ***function***. Cependant, pour corriger certains soucis notamment liés à la manipulation des objets et à la performance, JavaScript a introduit une autre notation : ***les fonctions fléchées***.
+
+> Voyons un exemple d’addEventListener où le second argument, qui est la fonction qui sera exécutée lorsque l’événement se produit, est écrit avec une fonction fléchée :
+
+```js
+monBouton.addEventListener("click", () => {
+    console.log("Vous avez cliqué sur le bouton")
+});
+```
+
+Dans le code ci-dessus :
+
+- le mot function est remplacé par des parenthèses vides ; 
+- une flèche apparaît entre les parenthèses et les accolades (d’où le nom de fonction fléchée !)
+
+En dépit de ces modifications, le fonctionnement reste le même. La fonction fléchée sera appelée à chaque fois que l’utilisateur va cliquer sur monBouton.
+
+Les deux notations, fonction fléchée et function, sont très utilisées. Cependant, pour la suite du cours, je vais privilégier la notation avec les fonctions fléchées. 
+
+[Récapitulons en vidéo](https://openclassrooms.com/fr/courses/7696886-apprenez-a-programmer-avec-javascript/8206297-interagissez-avec-un-element-d-une-page-web-grace-aux-evenements#/id/video_Player_2)
+
+### Pour aller plus loin : récupérez les informations sur un événement avec la variable “event”
+
+Il arrive régulièrement que l’on souhaite avoir des informations sur l’événement qui vient de se dérouler. Par exemple :
+
+- Sur quel élément l’utilisateur a-t-il cliqué ?
+- Quelles étaient les coordonnées de la souris ?
+- Sur quelle touche du clavier l’utilisateur a-t-il appuyé ?
+
+> Un exemple classique est la gestion du clavier. Lorsque l’on appuie sur une touche, l’événement appelé keypress se déclenche. Nous pourrions d’ailleurs l’utiliser dans notre application, par exemple, pour valider un mot lorsque l’on appuie sur la touche Entrée.
+
+Nous pouvons écouter cet événement grâce à addEventListener, mais comment savoir quelle touche a été pressée ?
+
+```js
+document.addEventListener('keypress', (event) => {
+    console.log(event.key);
+});
+```
+
+Entre les parenthèses est apparue une nouvelle variable appelée event. Cette variable est fournie directement par JavaScript. C’est un objet qui contient toutes les informations liées à l’événement. Ici, ce code affiche dans la console toutes les touches sur lesquelles nous pressons.
+
+N’hésitez pas à faire un console.log de event pour explorer un peu cette variable. JavaScript propose beaucoup d’informations pour parer à toutes les situations. Certaines d’entre elles sont particulièrement intéressantes : 
+
+- event.target : renvoie l’élément HTML qui a déclenché l’événement ;
+- event.key : la touche appuyée quand l’événement écouté est lié au clavier ;
+- event.clientX et event.clientY : les coordonnées de la souris quand l’événement écouté est lié à la souris.
+
+[revoir cette opération dans la vidéo](https://openclassrooms.com/fr/courses/7696886-apprenez-a-programmer-avec-javascript/8206297-interagissez-avec-un-element-d-une-page-web-grace-aux-evenements#/id/video_Player_3)
+
+[À vous de jouer !](https://openclassrooms.com/fr/courses/7696886-apprenez-a-programmer-avec-javascript/8206297-interagissez-avec-un-element-d-une-page-web-grace-aux-evenements#/id/r-8206282)
+
+### Résumé
+
+La programmation événementielle consiste à écrire du code qui réagit à des événements.
+
+Un événement est un signal envoyé par l’élément HTML lorsque l’utilisateur effectue une action (clic, frappe au clavier…).
+
+Pour savoir quand un événement est envoyé, vous devez attacher un écouteur à l’élément HTML.
+
+Pour gérer un événement, vous devez l’écouter en utilisant la méthode AddEventListener.
+
+Vous pouvez récupérer des informations sur un événement en utilisant la variable event.
+
+---
+
