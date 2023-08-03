@@ -144,3 +144,74 @@ Découpez votre code en fonctions.
 ```js
 
 ```
+
+## Modifier élément
+
+```html
+<img id="yz" src="https://www.dupmx.com/13136-tm_thickbox_default/yamaha-yz-125-2022.jpg" alt="moto yz bleue">
+```
+```js
+// Récupère l'élément
+let moto = document.getElementById("yz")
+
+// 2 arguments : l'élément que l'on veut changer. Attribut 2 = nouvelle valeur
+moto.setAttribute("src", "https://www.velos17loisirs.com/wp-content/uploads/2021/01/Velo-tout-terrain_%C2%A9VELOS17LOISIRS_2022_7.jpg")
+
+// on peut l'écrire aussi comme ça
+moto.src = "https://www.littlemichelenoelle.com/52937-large_default/trotinette-deluxe-pliable-bleu-ocean.jpg"
+
+
+// Attribut class possède une liste d'éléments
+moto.classList.remove("nomClassASupprimee")
+
+// Ajouter une class
+moto.classList.add("NouvelleClass")
+moto.classList.add("NouvelleClass2")
+```
+
+## Créer un élément HTML à partir de rien
+
+2 façons de faire : 
+
+Ajouter du code HTML dans une page - içi un titre h1 dans body.
+
+```html
+<body>
+
+</body>
+```
+
+__Méthode n° 1 avec : document.creatElement__
+
+```js
+let titrePage = "Le titre de ma page"
+// 1. Création de la balise h1
+let h1 = document.createElement("h1")
+
+// Ajouter contenu dans la balise avec : innerText
+h1.innerText = titrePage    // On reprends valeur de la variable créée au début
+
+// Insérer balise h1 dans le HTML, en récupérant la balise (içi body)
+let body = document.querySelector("body")
+
+// Ajouter balise h1 en tant que enfant de body
+body.appendChild(h1)
+``` 
+
+__Méthode n°2 insérer code dans balise existante__
+
+```js
+let titrePage = "Le titre de ma page"
+let body = document.querySelector("body")
+
+// Générer le code
+//Interpolation, insérer contenu d'une variable avec ${}
+// Ne pas oublier ``
+let html = `
+    <header>
+        <h1>${titrePage}</h1>
+    </header>
+`
+//Insérer le code HTML dans la balise body
+body.innerHTML = html
+```

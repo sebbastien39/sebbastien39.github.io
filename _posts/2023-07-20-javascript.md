@@ -1480,6 +1480,8 @@ Donc :
 `querySelector` pour récupérer un élément HTML en particulier.  
 `querySelectorAll` pour récupérer tous les éléments correspondants à un même sélécteur.
 
+![](/assets/images/2023-08-03 10-49-24.png)
+
 Dans mon exemple, je l'utilise pour récupérer toutes les div mais je pouurrai aussi récupérer toutes les images de ma page pour les affichées en grand ou tous les textes pour en changer la couleur.
 
 Le principe, c'est qu'une fois que j'ai récupérer mes éléments, je vais pouvoir les modifier à ma guise.
