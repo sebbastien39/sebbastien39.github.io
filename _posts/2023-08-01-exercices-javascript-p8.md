@@ -215,3 +215,4 @@ let html = `
 //Insérer le code HTML dans la balise body
 body.innerHTML = html
 ```
+

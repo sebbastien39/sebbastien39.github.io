@@ -18,7 +18,7 @@ Le type de champ le plus compliqué est le bonton radio. Là pour la même donn�
 
 C'est un peu plus complexe, mais avec ces 3 méthodes, on peut tout récupérer.
 
-Écrire le formulaire en lui même, ne pose pas de problème particulier. Javascript créé un événement submit lors de l'envoie du formulaire au serveur et recharge l'intégralité de la page. C'était quelque chose de nécessaire à l'époque de sa création. Il est aujourd'hui nécessaire de neutraliser cet événement par défaut. Pour ça, il faut récupérer l'événement submit et lui  attribuer l'action event.prevaultdefault, comme ça on évite le rechargement de la page.
+Écrire le formulaire en lui même, ne pose pas de problème particulier. Javascript créé un événement submit lors de l'envoie du formulaire au serveur et recharge l'intégralité de la page. C'était quelque chose de nécessaire à l'époque de sa création. Il est aujourd'hui nécessaire de neutraliser cet événement par défaut. Pour ça, il faut récupérer l'événement submit et lui  attribuer l'action ***event.preventDefault***, comme ça on évite le rechargement de la page.
 
 // Fin vidéo
 

@@ -37,3 +37,10 @@ Minima theme [code](https://github.com/jekyll/minima/blob/master/about.md). Info
 ## Freebox
 
 [Freebox dossier réseau](https://alexbacher.fr/unixlinux/acces-disque-freebox-ubuntu/)
+
+## Javascript
+
+[Doc HTML, CSS, js](https://developer.mozilla.org/en-US/) [Apprendre le Dev Web](https://developer.mozilla.org/fr/docs/Learn)
+__Tester expression régulière__
+
+[site regex](https://regex101.com/)
