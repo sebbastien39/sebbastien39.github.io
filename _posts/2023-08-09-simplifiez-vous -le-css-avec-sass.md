@@ -12,6 +12,8 @@ categories: sass css
 
 ## Simplifiez votre code
 
+Préprocesseur : programme qui fonctionne sur votre ordinateur ou sur un serveur, chargé de traduire syntaxe SCSS intelligente en CSS.
+
 Trouver les répétitions / Les réunirent dans une class / Réutiliser ces class pour éviter de nouvelles répétitions
 
 Méthode ***DRY*** (don’t  repeat yourself)
