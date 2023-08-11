@@ -209,3 +209,24 @@ __Incliner des objets horizontalement ou verticalement `skew()`__ [source](https
 
 __les transformations en 3D `perspective()`__ [source](https://openclassrooms.com/fr/courses/5919246-creez-des-animations-css-modernes/6340919-creez-des-animations-fluides-avec-la-propriete-css-transform#/id/r-6498983)
 
+## Modifiez le point d’ancrage d’un élément grâce à transform-origin
+
+[source](https://openclassrooms.com/fr/courses/5919246-creez-des-animations-css-modernes/6340920-modifiez-le-point-d-ancrage-d-un-element-grace-a-transform-origin)
+
+La propriété `transform-origin` permet de déplacer un point d’ancrage où on veut, pour faire partir nos animations de ce point.
+
+### Déplacez le centre
+
+
+
+
+
+
+
+
+## Analysez la performance de vos animations avec Chrome DevTools
+
+
+
+
+
