@@ -243,7 +243,5 @@ La propriété `transform-origin` permet de déplacer un point d’ancrage où o
 
 [source](https://openclassrooms.com/fr/courses/5919246-creez-des-animations-css-modernes/6340921-analysez-la-performance-de-vos-animations-avec-chrome-devtools)
 
-
-
-
+DevTool > ***Performance*** , permet d’enregistrer et d’analyser comment une page se charge, réagit, et s’anime.
 
