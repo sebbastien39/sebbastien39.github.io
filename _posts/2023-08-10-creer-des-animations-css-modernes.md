@@ -29,7 +29,7 @@ Pour créer une transition, vous aurez besoin de plusieurs informations :
 - une valeur initiale pour votre propriété CSS ;
 - une valeur finale pour cette même propriété ;
 - une durée ;
-- un événement (une pseudoclass) pour déclencher votre transition.
+- un événement (une pseudoclass) pour déclencher l'animation (transition).
 
 Exemple d'un bouton : 
 
@@ -125,6 +125,21 @@ Les pseudoclasses sont essentielles pour déclencher une transition en CSS. Une 
 [source](https://openclassrooms.com/fr/courses/5919246-creez-des-animations-css-modernes/6340914-declenchez-vos-transitions-avec-les-pseudoclasses#/id/r-6333192)
 
 ## Appliquez les 12 principes de l’animation au web
+
+Les 12 principes de l'animation sont :
+
+- Squash and Stretch ;
+- Anticipation ; 
+- Staging (mise en scène) ;
+- Straight Ahead and Pose to Pose ; 
+- Follow Through and Overlapping Action ; 
+- Slow in and slow out ;
+- Arc ;
+- Secondary Action ;
+- Timing ;
+- Exaggeration (exagération) ; 
+- Solid Drawing (notion de volume) ;
+- Appeal (charisme).
 
 [source](https://openclassrooms.com/fr/courses/5919246-creez-des-animations-css-modernes/6340915-appliquez-les-12-principes-de-l-animation-au-web)
 
@@ -225,6 +240,8 @@ La propriété `transform-origin` permet de déplacer un point d’ancrage où o
 
 
 ## Analysez la performance de vos animations avec Chrome DevTools
+
+[source](https://openclassrooms.com/fr/courses/5919246-creez-des-animations-css-modernes/6340921-analysez-la-performance-de-vos-animations-avec-chrome-devtools)
 
 
 
