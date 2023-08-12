@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Résumé - Créer des animations CSS modernes"
-date:   2023-08-12 18:38:42 +0200
+date:   2023-08-10 11:45:12 +0200
 categories: css animation
 ---
 
