@@ -245,3 +245,139 @@ La propriété `transform-origin` permet de déplacer un point d’ancrage où o
 
 DevTool > ***Performance*** , permet d’enregistrer et d’analyser comment une page se charge, réagit, et s’anime.
 
+## Animez les couleurs de manière performante avec opacity
+
+[source](https://openclassrooms.com/fr/courses/5919246-creez-des-animations-css-modernes/6340922-animez-les-couleurs-de-maniere-performante-avec-opacity)
+
+ La propriété `opacity` permet de faire des transitions de couleur sans que le navigateur fasse des calculs de type “paint”. La performance reste donc optimale.
+
+ /!\ Ne pas utilisé ~~background-color~~
+
+Pseudoélément `::after`
+
+pseudoclasse `:`  
+pseudoélément `::`
+
+La propriété `content` est indispensable au fonctionnement des pseudoéléments. Elle permet de remplir un pseudoélément de texte ou d’images et d’assigner une valeur (chaine de caractère vide) au pseudoélément dans le cas d'un bouton `content: "";`.
+
+[content, dans le cas d'un bouton](https://openclassrooms.com/fr/courses/5919246-creez-des-animations-css-modernes/6340922-animez-les-couleurs-de-maniere-performante-avec-opacity#/id/r-6428893)
+
+### Découvrez les dégradés
+
+[source](https://openclassrooms.com/fr/courses/5919246-creez-des-animations-css-modernes/6340922-animez-les-couleurs-de-maniere-performante-avec-opacity#/id/r-6429394)
+
+// Fin mouvement des élément d'un point A à un point B, les ***transitions***, avec une valeur de départ et une valeur de fin. Il est possible d changer le timing de la transition.
+
+## Créez des animations plus complexes avec la règle CSS @keyframes
+
+[source](https://openclassrooms.com/fr/courses/5919246-creez-des-animations-css-modernes/6340923-creez-des-animations-plus-complexes-avec-la-regle-css-keyframes)
+
+***Keyframes*** étapes qui compose une animation CSS.
+
+### Définissez vos keyframes
+
+Les ***transitions***, qui sont à usage unique, n'existent qu'à l'intérieur du sélecteur où elles ont été déclarées.
+
+Les ***@keyframes*** sont disponibles globalement, ne sont pas déclarés dans un sélecteur mais au niveau de base du fichier CSS, n'importe quel sélecteur dans notre fichier CSS peut les utiliser.
+
+__Déclarer une Keyframe__ :
+
+```scss
+@keyframes progress-bar {
+    
+}
+```
+
+```js
+@keyframes progress-bar{
+    0% {    //keyframe défini en utilisant son pourcentage
+        transform: scaleX(0); //propriétés entre {}
+    }
+    100% {
+        transform: scaleX(1);
+    }
+}
+```
+
+__keyframes de début et de fin sans rien au milieu__
+
+```scss
+// Pas besoin de %
+@keyframes progress-bar{
+    from {
+        transform: scaleX(0);   
+    }
+    to {
+        transform: scaleX(1);
+    }
+}
+```
+
+### Passez à l'action
+
+`animation-name`
+`animation-duration`
+
+## Utilisez les propriétés de l'animation CSS
+
+[source](https://openclassrooms.com/fr/courses/5919246-creez-des-animations-css-modernes/6341109-utilisez-les-proprietes-de-lanimation-css)
+
+### Comprenez la différence entre ***@keyframes*** et ***transition***
+
+2 techniques ayant des logiques différentes, car elle ne répondent pas au même objectif.
+
+### Déclenchez vos animations dès le chargement de la page
+
+Avec les @keyframes, nous pouvons déclencher une animation dès le chargement d'un élément.
+
+Nous pouvons créer des animations sur notre site web pour introduire des éléments au fur et à mesure de leur chargement.
+
+### Ajoutez un délai à votre animation @keyframes
+
+`transition-delay` permet de retarder (seulement) les transitions.
+
+`animation-delay` retarde les animations conçues avec des @keyframes.
+
+```scss
+.progress {
+    &__bar {
+        animation: progress-bar 1000ms 150ms;
+    }
+}
+```
+
+### Étendez les propriétés de vos keyframes avec animation-fill-mode
+
+## Manipulez et réutilisez les animations CSS
+
+[source](https://openclassrooms.com/fr/courses/5919246-creez-des-animations-css-modernes/6340941-manipulez-et-reutilisez-les-animations-css)
+
+### Repensez votre validation d'email
+
+[source](https://openclassrooms.com/fr/courses/5919246-creez-des-animations-css-modernes/6340941-manipulez-et-reutilisez-les-animations-css#/id/r-6434075)
+
+### Créez des émotions avec vos animations
+
+[source](https://openclassrooms.com/fr/courses/5919246-creez-des-animations-css-modernes/6340941-manipulez-et-reutilisez-les-animations-css#/id/r-6490707)
+
+### Faites boucler vos animations à l'infini
+
+[source](https://openclassrooms.com/fr/courses/5919246-creez-des-animations-css-modernes/6340941-manipulez-et-reutilisez-les-animations-css#/id/r-6490715)
+
+`infinite`
+
+### Faites une pause
+
+[source](https://openclassrooms.com/fr/courses/5919246-creez-des-animations-css-modernes/6340941-manipulez-et-reutilisez-les-animations-css#/id/r-6490721)
+
+`animation-play-state`
+
+`random()`
+
+## Affinez vos animations CSS avec DevTools
+
+[source](https://openclassrooms.com/fr/courses/5919246-creez-des-animations-css-modernes/6340942-affinez-vos-animations-css-avec-devtools)
+
+## +
+
+[liens](https://openclassrooms.com/fr/courses/5919246-creez-des-animations-css-modernes/6340949-resume-du-cours#/id/r-6464730)
