@@ -54,4 +54,5 @@ plugins:
 # Ordre du menu de navigation
 header_pages:
   - link.md
+  - lexique.md
   - about.markdown
