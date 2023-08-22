@@ -20,21 +20,28 @@ dans le cas string : undefined
 ## Problème avec var
 
 Le problème avec var, on peut effacer des déclaration de variable : 
+
+```js
 var camper = "James";
 var camper = "David"; // James sera ecrasé
+```
+
 solution : let
+
+```js
 let camper = "James";
 let camper = "David"; //Il y aura une erreur ds la console
+```
 
 Avec let, une variable de même nom ne peut être déclarée qu'une seule fois.
 
-## const is read-only
+## __const__ is read-only
 
 Read-Only Variable : const valeur constante
 
 ## Uppercase / camelCase
 
-const en Majuscule
+const en Majuscule  
 let en camelCase
 
 ## Incrémenter / Décrémenter
@@ -56,16 +63,19 @@ Le reste est différent du modulo même si très similaire, il ne fonctionne pas
 ```js
 myVar = myVar + 5;
 ```
+
 Tout ce qui se trouve à droite du signe égal est évalué en premier.
 
 Opérateurs qui effectuent à la fois une opération mathématique et une affectation en une seule étape.
 
+```
 Comme l'opérateur +=
 myVar += 5;
 pareil pour : 
 Soustraction : myVar -= 5;
 Multiplication : myVar *= 5;
 Division : myVar /= 5;
+```
 
 ## "" ou ''
 
@@ -616,7 +626,7 @@ if (num > 10) {
 
 ## instructions Else If
 
-Si vous avez plusieurs conditions à traiter, vous pouvez enchaîner les instructions if avec les instructions else if.
+Si vous avez plusieurs conditions à traiter, vous pouvez enchaîner les instructions ***if*** avec les instructions ***else if***.
 
 ```js
 if (num > 15) {
@@ -626,5 +636,729 @@ if (num > 15) {
 } else {
   return "Between 5 and 15";
 }
+```
+
+## Ordre logique dans les instructions __If Else__
+
+L'ordre est important dans les instructions ***if***, ***else if***.
+
+La fonction est ***exécutée de haut en bas***, vous devez donc faire attention à quelle instruction vient en premier.
+
+Prenons ces deux fonctions comme exemple.
+
+```js
+function foo(x) {
+  if (x < 1) {
+    return "Less than one";
+  } else if (x < 2) {
+    return "Less than two";
+  } else {
+    return "Greater than or equal to two";
+  }
+}
+
+foo(0) //Less than one
+```
+
+La seconde change simplement l’ordre des déclarations :
+
+```js
+function bar(x) {
+  if (x < 2) {
+    return "Less than two";
+  } else if (x < 1) {
+    return "Less than one";
+  } else {
+    return "Greater than or equal to two";
+  }
+}
+
+bar(0) //Less than two
+```
+## Chaînage d'instructions If Else
+
+Les instructions if/else peuvent être enchaînées pour une logique complexe. Voici le pseudocode de plusieurs instructions if/else if enchaînées :
+
+```
+if (condition1) {
+  statement1
+} else if (condition2) {
+  statement2
+} else if (condition3) {
+  statement3
+. . .
+} else {
+  statementN
+}
+```
+
+Exemple :
+
+|Strokes	|Return|
+|1	|"Hole-in-one!"|
+|<= par - 2	|"Eagle"|
+|par - 1	|"Birdie"|
+|par	|"Par"|
+|par + 1	|"Bogey"|
+|par + 2	|"Double Bogey"|
+|>= par + 3	|"Go Home!"|
+
+```js
+const names = ["Hole-in-one!", "Eagle", "Birdie", "Par", "Bogey", "Double Bogey", "Go Home!"];
+
+function golfScore(par, strokes) {
+  if (strokes == 1) {
+    return names[0];
+  } else if (strokes <= par - 2) {
+    return names[1];
+  } else if (strokes === par - 1) {
+    return names[2];
+  } else if (strokes === par) {
+    return names[3];
+  } else if (strokes === par + 1) {
+    return names[4];
+  } else if (strokes === par + 2) {
+    return names[5];
+  } else {
+    return names[6];
+  }
+}
+
+console.log(golfScore(5, 4)); //Birdie
+```
+
+## Sélection parmi de nombreuses options avec les instructions __Switch__
+
+Si vous devez faire correspondre une valeur à plusieurs options, vous pouvez utiliser une instruction switch. Une instruction switch compare la valeur aux instructions case qui définissent diverses valeurs possibles. Toutes les instructions JavaScript valides peuvent être exécutées à l'intérieur d'un bloc de cas et s'exécuteront à partir de la première valeur de cas correspondante jusqu'à ce qu'une rupture soit rencontrée.
+
+```js
+switch (fruit) {
+  case "apple":
+    console.log("The fruit is an apple");
+    break;
+  case "orange":
+    console.log("The fruit is an orange");
+    break;
+}
+```
+
+les valeurs de `case` sont testées avec une égalité stricte (===). Le break indique à JavaScript d'arrêter l'exécution des instructions. Si le break est omis, l'instruction suivante sera exécutée.
+
+Exemple :
+
+```js
+function caseInSwitch(val) {
+  let answer = ""; // <== Important ça ! Déclarer vide !
+switch (val) {
+  case 1:
+    answer = "alpha";
+    break;
+  case 2:
+    answer = "beta";
+    break;
+  case 3:
+    answer = "gamma";
+    break;
+  case 4:
+    answer = "delta";
+    break;}
+  return answer;
+}
+
+console.log(caseInSwitch(4)); //delta
+```
+
+## Ajout d'une option par défaut dans les instructions Switch
+
+Dans une instruction switch, vous ne pourrez peut-être pas spécifier toutes les valeurs possibles sous forme d'instructions case. Au lieu de cela, vous pouvez ajouter l'instruction par défaut qui sera exécutée si aucune instruction case correspondante n'est trouvée. Pensez-y comme à la dernière instruction else d'une chaîne if/else.
+
+Une instruction par défaut devrait être le dernier cas.
+
+```js
+switch (num) {
+  case value1:
+    statement1;
+    break;
+  case value2:
+    statement2;
+    break;
+...
+  default:
+    defaultStatement;
+    break;
+}
+```
+
+Exemple avec __default__ :
+
+```js
+function switchOfStuff(val) {
+  let answer = ""
+switch (val){
+  case "a":
+    answer = "apple"
+    break
+  case "b":
+    answer = "bird"
+    break
+  case "c":
+    answer = "cat"
+    break
+  default: // <== Default c'est comme un else
+    answer = "stuff"
+    break
+}
+  return answer
+}
+
+console.log(switchOfStuff("a")) //apple
+```
+
+## Plusieurs options identiques dans les instructions Switch
+
+Si l'instruction break est omise dans le cas d'une instruction switch, la ou les instructions case suivantes sont exécutées jusqu'à ce qu'une rupture soit rencontrée. Si vous avez plusieurs entrées avec la même sortie, vous pouvez les représenter dans une instruction switch comme celle-ci :
+
+```js
+let result = "";
+switch (val) {
+  case 1:
+  case 2:
+  case 3:
+    result = "1, 2, or 3";
+    break;
+  case 4:
+    result = "4 alone";
+}
+// Les cas 1, 2 et 3 produiront tous le même résultat.
+```
+
+Exemple :
+
+```js
+function sequentialSizes(val) {
+  let answer = "";
+switch (val){
+  case 1:
+  case 2:
+  case 3:
+    answer = "Low"
+    break
+  case 4:
+  case 5:
+  case 6:
+   answer = "Mid"
+   break
+  case 7:
+  case 8:
+  case 9:
+    answer = "High"
+}
+  return answer;
+}
+
+console.log(sequentialSizes(1)); //Low
+```
+
+## Remplacement des chaînes __If Else__ avec __Switch__
+
+Si vous avez le choix entre de nombreuses options, une instruction switch peut être plus facile à écrire que de nombreuses instructions if/else if enchaînées. Ce qui suit:
+
+```js
+if (val === 1) {
+  answer = "a";
+} else if (val === 2) {
+  answer = "b";
+} else {
+  answer = "c";
+}
+```
+
+Peut être remplacer par :
+
+```js
+switch (val) {
+  case 1:
+    answer = "a";
+    break;
+  case 2:
+    answer = "b";
+    break;
+  default:
+    answer = "c";
+}
+```
+
+Exemple :
+
+```js
+function chainToSwitch(val) {
+  let answer = "";
+  if (val === "bob") {
+    answer = "Marley";
+  } else if (val === 42) {
+    answer = "The Answer";
+  } else if (val === 1) {
+    answer = "There is no #1";
+  } else if (val === 99) {
+    answer = "Missed me by this much!";
+  } else if (val === 7) {
+    answer = "Ate Nine";
+  }
+  return answer;
+}
+
+console.log(chainToSwitch(7)); //Ate Nine
+```
+
+Peut être remplacer par :
+
+```js
+function chainToSwitch(val) {
+  let answer = "";
+switch(val) {
+  case "bob":
+    answer = "Marley"
+    break
+  case 42:
+    answer = "The Answer"
+    break
+  case 1:
+    answer = "There is no #1"
+    break
+  case 99:
+    answer ="Missed me by this much!"
+    break
+  case 7:
+    answer = "Ate Nine"
+    break
+  default:
+   answer = "empty string"
+}
+  return answer;
+}
+
+console.log(chainToSwitch(42)); //The Answer
+```
+
+## Renvoi de valeurs booléennes à partir de fonctions
+
+Tous les opérateurs de comparaison renvoient une valeur booléenne vraie ou fausse.
+
+Parfois, les gens utilisent une instruction if/else pour faire une comparaison, comme ceci :
+
+```js
+function isEqual(a, b) {
+  if (a === b) {
+    return true;
+  } else {
+    return false;
+  }
+}
+```
+Mais il existe une meilleure façon de procéder. Puisque === renvoie vrai ou faux, nous pouvons renvoyer le résultat de la comparaison :
+
+```js
+function isEqual(a, b) {
+  return a === b;
+}
+```
+
+Exemple :
+
+```js
+function isLess(a, b) {
+  if (a < b) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+console.log(isLess(10, 15)); // true
+```
+
+Meilleur façon : 
+
+```js
+function isLess(a, b) {
+  return a < b
+}
+
+console.log(isLess(10, 15)); //true
+```
+
+## Return Early Pattern for Functions
+
+When a return statement is reached, the execution of the current function stops and control returns to the calling location.
+
+```js
+function myFun() {
+  console.log("Hello");
+  return "World";
+  console.log("byebye")
+}
+myFun();
+```
+
+Ce qui précède affichera la chaîne Hello dans la console et renverra la chaîne World. La chaîne byebye ne s'affichera jamais dans la console, car la fonction se termine à l'instruction return.
+
+Exemple :
+
+```js
+function abTest(a, b) {
+  if (a < 0 || b < 0) { // <== Ce qu'il fallait écrire
+    return undefined
+  }
+  return Math.round(Math.pow(Math.sqrt(a) + Math.sqrt(b), 2));
+}
+
+console.log(abTest(-2,2)); //undefined
+```
+
+Exemple :
+
+|Count |Change	Cards|
+|+1	|2, 3, 4, 5, 6|
+|0	|7, 8, 9|
+|-1	|10, 'J', 'Q', 'K', 'A'|
+
+```js
+let count = 0;
+
+function cc(card) {
+switch (card) {
+  case 2:
+  case 3:
+  case 4:
+  case 5:
+  case 6:
+    count++
+  break
+  case 10:
+  case "J":
+  case "Q":
+  case "K":
+  case "A":
+    count--
+    break
+}
+  let holdbet = "Hold"
+   if (count > 0){
+     holdbet = "Bet"
+  };
+  return count + " " + holdbet
+}
+
+console.log(cc(2)); cc(3); cc(7); cc('K'); cc('A'); //1 Bet
+```
+
+## objets
+
+Les objets sont similaires aux tableaux, sauf qu'au lieu d'utiliser des index pour accéder et modifier leurs données, vous accédez aux données des objets via ce que l'on appelle des propriétés.
+
+Les objets sont utiles pour stocker des données de manière structurée et peuvent représenter des objets du monde réel, comme un chat.
+
+```js
+const cat = {
+  "name": "Whiskers",
+  "legs": 4,
+  "tails": 1,
+  "enemies": ["Water", "Dogs"]
+};
+```
+
+```js
+const anotherObject = {
+  make: "Ford",
+  5: "five",
+  "model": "focus"
+};
+```
+
+However, if your object has any non-string properties, JavaScript will automatically typecast them as strings.
+
+Exemple :
+
+```js
+const myDog = {
+  name: "hello",
+  legs: 10,
+  tails: 10,
+  friends: ["yes", "no"]
+};
+
+console.log(myDog) //{ name: 'hello', legs: 10, tails: 10, friends: [ 'yes', 'no' ] }
+```
+
+## Accéder aux propriétés d'un objet avec la notation par points
+
+l existe deux manières d'accéder aux propriétés d'un objet : la notation par points (.) et la notation par crochets ([]), similaire à un tableau.
+
+La notation par points est ce que vous utilisez lorsque vous connaissez à l'avance le nom de la propriété à laquelle vous essayez d'accéder.
+
+Voici un exemple d'utilisation de la notation par points (.) pour lire la propriété d'un objet :
+
+```js
+const myObj = {
+  prop1: "val1",
+  prop2: "val2"
+};
+
+const prop1val = myObj.prop1; //val1
+const prop2val = myObj.prop2; //val2
+```
+
+Exemple :
+
+```js
+const testObj = {
+  "hat": "ballcap",
+  "shirt": "jersey",
+  "shoes": "cleats"
+};
+
+const hatValue = testObj.hat;      // <= .hat
+const shirtValue = testObj.shirt;    // <= .shirt
+
+console.log(hatValue) //ballcap
+console.log(shirtValue) //jersey
+```
+
+## Accès aux propriétés d'un objet avec la notation entre crochets
+
+La deuxième façon d'accéder aux propriétés d'un objet est la notation entre crochets ([]). Si la propriété de l'objet auquel vous essayez d'accéder comporte un espace dans son nom, vous devrez utiliser la notation entre crochets.
+
+Cependant, vous pouvez toujours utiliser la notation entre crochets sur les propriétés d'objet sans espaces.
+
+Voici un exemple d'utilisation de la notation entre crochets pour lire la propriété d'un objet :
+
+```js
+const myObj = {
+  "Space Name": "Kirk",
+  "More Space": "Spock",
+  "NoSpace": "USS Enterprise"
+};
+
+myObj["Space Name"]; //Kirk
+myObj['More Space']; //Spock
+myObj["NoSpace"]; //USS Enterprise
+```
+
+Nom de propriété entre guillemets (simples ou doubles).
+
+Exemple :
+
+```js
+const testObj = {
+  "an entree": "hamburger",
+  "my side": "veggies",
+  "the drink": "water"
+};
+
+const entreeValue = testObj["an entree"];   // Change this line
+const drinkValue = testObj["the drink"];    // Change this line
+
+console.log(entreeValue) //hamburger
+console.log(drinkValue) //water
+```
+
+## Accéder aux propriétés d'un objet avec des variables
+
+Une autre utilisation de la notation entre crochets sur les objets consiste à accéder à une propriété qui est stockée comme valeur d'une variable. Cela peut être très utile pour parcourir les propriétés d'un objet ou pour accéder à une table de recherche.
+
+Voici un exemple d'utilisation d'une variable pour accéder à une propriété :
+
+```js
+const dogs = {
+  Fido: "Mutt",
+  Hunter: "Doberman",
+  Snoopie: "Beagle"
+};
+
+const myDog = "Hunter"; //Mets la propriété "Hunter" dans une variable
+const myBreed = dogs[myDog];// Équivaut à const myBreed = dogs["Hunter"]
+console.log(myBreed); // Résultat : Doberman
+```
+
+Notez que nous n'utilisons pas de guillemets autour du nom de la variable lorsque nous l'utilisons pour accéder à la propriété car nous utilisons la valeur de la variable, pas le nom.
+
+Exemple :
+
+```js
+const testObj = {
+  12: "Namath",
+  16: "Montana",
+  19: "Unitas"
+};
+//Mettre la valeur 16 dans variable, utiliser la variable pour assigner le nom du joueur à la variable player.
+const playerNumber = 16;  // Change this line
+const player = testObj[playerNumber];   // Change this line
+
+console.log(playerNumber) //16
+console.log(player) //Montana
+```
+
+## Mise à jour des propriétés d'un objet
+
+Après avoir créé un objet JavaScript, vous pouvez mettre à jour ses propriétés à tout moment, comme vous le feriez pour n'importe quelle autre variable. Vous pouvez utiliser la notation par points ou par crochets pour mettre à jour.
+
+Par exemple, regardons ourDog :
+
+```js
+const ourDog = {
+  "name": "Camper",
+  "legs": 4,
+  "tails": 1,
+  "friends": ["everything!"]
+};
+```
+
+Mettre à jour la propriété name :
+
+`ourDog.name = "Happy Camper"`
+
+name prends désormais la valeur "Happy Camper"
+
+## Ajouter de nouvelles propriétés à un objet
+
+Vous pouvez ajouter de nouvelles propriétés aux objets JavaScript existants de la même manière que vous les modifieriez.
+
+```js
+//Ajouter la propriété "bark" à l'objet "ourDog"
+ourDog.bark = "bow-wow";
+
+//ou
+ourDog["bark"] = "bow-wow";
+
+//Résultat
+console.log(ourDog.bark) //bow-wow
+```
+
+Exemple : 
+
+```js
+const myDog = {
+  "name": "Happy Coder",
+  "legs": 4,
+  "tails": 1,
+  "friends": ["freeCodeCamp Campers"]
+};
+
+myDog.bark = "woof" // <== Ajout propriété + valeur
+
+console.log(myDog)
+/*
+{ name: 'Happy Coder',
+  legs: 4,
+  tails: 1,
+  friends: [ 'freeCodeCamp Campers' ],
+  bark: 'woof' }
+  */
+```
+
+## Supprimer les propriétés d'un objet
+
+Supprimer les propriétés des objets comme ceci :
+
+`delete ourDog.bark;`
+
+Exemple :
+
+```js
+const myDog = {
+  "name": "Happy Coder",
+  "legs": 4,
+  "tails": 1,
+  "friends": ["freeCodeCamp Campers"],
+  "bark": "woof"
+};
+
+delete myDog.tails // <== Supprimer propriété
+
+ console.log(myDog)
+ /*
+ { name: 'Happy Coder',
+  legs: 4,
+  friends: [ 'freeCodeCamp Campers' ],
+  bark: 'woof' }
+```
+
+## Utiliser des objets pour les recherches
+
+Les objets peuvent être considérés comme un stockage clé/valeur, comme un dictionnaire. Si vous disposez de données tabulaires, vous pouvez utiliser un objet pour rechercher des valeurs plutôt qu'une instruction switch ou une chaîne if/else. Ceci est particulièrement utile lorsque vous savez que vos données d'entrée sont limitées à une certaine plage.
+
+Voici un exemple d’objet article :
+
+```js
+const article = {
+  "title": "How to create objects in JavaScript",
+  "link": "https://www.freecodecamp.org/news/a-complete-guide-to-creating-objects-in-javascript-b0e2450655e8/",
+  "author": "Kaashan Hussain",
+  "language": "JavaScript",
+  "tags": "TECHNOLOGY",
+  "createdAt": "NOVEMBER 28, 2018"
+};
+
+const articleAuthor = article["author"]; //Kaashan Hussain
+const articleLink = article["link"]; //https://www.freecodecamp.org/news/a-complete-guide-to-creating-objects-in-javascript-b0e2450655e8/
+
+const value = "title"; 
+const valueLookup = article[value]; //How to create objects in JavaScript
+```
+
+Exemple :
+
+```js
+function phoneticLookup(val) {
+  let result = "";
+
+  // Only change code below this line
+  switch(val) {
+    case "alpha":
+      result = "Adams";
+      break;
+    case "bravo":
+      result = "Boston";
+      break;
+    case "charlie":
+      result = "Chicago";
+      break;
+    case "delta":
+      result = "Denver";
+      break;
+    case "echo":
+      result = "Easy";
+      break;
+    case "foxtrot":
+      result = "Frank";
+  }
+
+  // Only change code above this line
+  return result;
+}
+
+phoneticLookup("charlie");
+```
+
+Devient :
+
+```js
+function phoneticLookup(val) {
+  let result = ""; // Ne pas oublier ""
+
+  const lookup = {
+    alpha: "Adams",
+    bravo: "Boston",
+    charlie: "Chicago",
+    delta: "Denver",
+    echo: "Easy",
+    foxtrot: "Frank"
+  }
+  result = (lookup[val]) // <== Et oui ! "val" :)
+  
+  return result;
+}
+
+console.log(phoneticLookup("charlie")); //Chicago
 ```
 
