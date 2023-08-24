@@ -1362,3 +1362,148 @@ function phoneticLookup(val) {
 console.log(phoneticLookup("charlie")); //Chicago
 ```
 
+## Test des objets pour les propriétés
+
+Pour vérifier si une propriété sur un objet donné existe ou non, vous pouvez utiliser la méthode `.hasOwnProperty(). someObject.hasOwnProperty(someProperty)` renvoie vrai ou faux selon que la propriété est trouvée ou non sur l'objet.
+
+```js
+function checkForProperty(object, property) {
+  return object.hasOwnProperty(property);
+}
+
+checkForProperty({ top: 'hat', bottom: 'pants' }, 'top'); // true
+checkForProperty({ top: 'hat', bottom: 'pants' }, 'middle'); // false
+```
+
+## Manipulation d'objets complexes
+
+Parfois, vous souhaiterez peut-être stocker des données dans une structure de données flexible. Un objet JavaScript est un moyen de gérer des données flexibles. Ils permettent des combinaisons arbitraires de chaînes, de nombres, de booléens, de tableaux, de fonctions et d'objets.
+
+Voici un exemple de structure de données complexe :
+
+```js
+const ourMusic = [
+  {
+    "artist": "Daft Punk",
+    "title": "Homework",
+    "release_year": 1997,
+    "formats": [ 
+      "CD", 
+      "Cassette", 
+      "LP"
+    ],
+    "gold": true
+  }
+];
+```
+
+Il s'agit d'un tableau qui contient un objet à l'intérieur. L'objet contient diverses métadonnées sur un album. Il dispose également d'un tableau "formats" imbriqués (nested). Si vous souhaitez ajouter d'autres enregistrements d'album, vous pouvez le faire en ajoutant des enregistrements au tableau de niveau supérieur. Les objets contiennent des données dans une propriété qui a un format clé-valeur. Dans l'exemple ci-dessus, « artiste » : « Daft Punk » est une propriété qui a une clé d'`artist` et une valeur de `Daft Punk`.
+
+Remarque : Vous devrez placer une virgule après chaque objet du tableau, sauf s'il s'agit du dernier objet du tableau.
+
+## Accéder aux objets imbriqués (nested)
+
+Les sous-propriétés des objets sont accessibles en enchaînant la notation par points ou par crochets.
+
+Voici un objet imbriqué :
+
+```js
+const ourStorage = {
+  "desk": {
+    "drawer": "stapler"
+  },
+  "cabinet": {
+    "top drawer": { 
+      "folder1": "a file",
+      "folder2": "secrets"
+    },
+    "bottom drawer": "soda"
+  }
+};
+
+ourStorage.cabinet["top drawer"].folder2; //secrets
+ourStorage.desk.drawer; //stapler
+```
+
+## Accéder aux tableaux imbriqués (nested)
+
+Comme nous l'avons vu dans les exemples précédents, les objets peuvent contenir à la fois des objets imbriqués et des tableaux imbriqués. Semblable à l'accès aux objets imbriqués, la notation entre crochets de tableau peut être chaînée pour accéder aux tableaux imbriqués.
+
+Voici un exemple de comment accéder à un tableau imbriqué :
+
+```js
+const ourPets = [
+  {
+    animalType: "cat",
+    names: [
+      "Meowzer",
+      "Fluffy",
+      "Kit-Cat"
+    ]
+  },
+  {
+    animalType: "dog",
+    names: [
+      "Spot",
+      "Bowser",
+      "Frankie"
+    ]
+  }
+];
+
+ourPets[0].names[1]; //Fluffy
+ourPets[1].names[0]; //Spot
+```
+
+## Exercice Collection de disques
+
+Vous créez une fonction qui facilite la maintenance d'une collection d'albums musicaux. La collection est organisée comme un objet contenant plusieurs albums qui sont également des objets. Chaque album est représenté dans la collection avec un identifiant unique comme nom de propriété. Dans chaque objet album, il existe diverses propriétés décrivant des informations sur l'album. Tous les albums ne contiennent pas des informations complètes.
+
+La fonction updateRecords prend 4 arguments représentés par les paramètres de fonction suivants :
+
+- records - un objet contenant plusieurs albums individuels
+- id - un numéro représentant un album spécifique dans l'objet records
+- prop - une chaîne représentant le nom de la propriété de l'album à mettre à jour
+- value - une chaîne contenant les informations utilisées pour mettre à jour la propriété de l'album
+
+Complétez la fonction en utilisant les règles ci-dessous pour modifier l'objet passé à la fonction.
+
+- Votre fonction doit toujours renvoyer l’intégralité de l’objet records.
+- Si value est une chaîne vide, supprimez la propriété prop donnée de l'album.
+- Si prop n'est pas une piste et que value n'est pas une chaîne vide, attribuez la valeur à l'accessoire de cet album.
+- Si prop est une piste et que la valeur n'est pas une chaîne vide, vous devez mettre à jour le tableau des pistes de l'album. Tout d’abord, si l’album n’a pas de propriété tracks, attribuez-lui un tableau vide. Ajoutez ensuite la valeur comme dernier élément du tableau des pistes de l'album.
+
+Remarque : Une copie de l'objet recordCollection est utilisée pour les tests. Vous ne devez pas modifier directement l'objet recordCollection.
+
+```js
+// Setup
+const recordCollection = {
+  2548: {
+    albumTitle: 'Slippery When Wet',
+    artist: 'Bon Jovi',
+    tracks: ['Let It Rock', 'You Give Love a Bad Name']
+  },
+  2468: {
+    albumTitle: '1999',
+    artist: 'Prince',
+    tracks: ['1999', 'Little Red Corvette']
+  },
+  1245: {
+    artist: 'Robert Palmer',
+    tracks: []
+  },
+  5439: {
+    albumTitle: 'ABBA Gold'
+  }
+};
+
+// Only change code below this line
+function updateRecords(records, id, prop, value) {
+  return records;
+}
+
+updateRecords(recordCollection, 5439, 'artist', 'ABBA');
+```
+
+Solution :
+
