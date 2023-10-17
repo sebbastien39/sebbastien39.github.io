@@ -4,7 +4,17 @@ title: Links
 permalink: /links/
 ---
 
-[Dev Tools Mozilla](https://developer.mozilla.org/fr/docs/Learn/Common_questions/Tools_and_setup/What_are_browser_developer_tools#la_console_javascript). 
+## Dev Tools
+
+[Dev Tools Mozilla](https://developer.mozilla.org/fr/docs/Learn/Common_questions/Tools_and_setup/What_are_browser_developer_tools). 
+
+Console : fournis un environnement intéractif de développement.
+
+Inspecteur : permet d'observer à la loupe le  HTML et le CSS.
+
+Débugger : permet de suivre étape par étape l'évolution du code.
+
+Réseau : Permet de traquer les API et les fichiers.
 
 ## gh-pages and Markdown
 
